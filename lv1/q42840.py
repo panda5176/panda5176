@@ -8,8 +8,10 @@ def solution(answers):
     for i, a in enumerate(answers):
         if a == man1[i % 5]:
             points[0] += 1
+
         if a == man2[i % 8]:
             points[1] += 1
+            
         if a == man3[i % 10]:
             points[2] += 1
     

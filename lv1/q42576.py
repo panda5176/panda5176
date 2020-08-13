@@ -5,6 +5,7 @@ def solution(participant, completion):
 	for c in completion:
 		if c in c_dic:
 			c_dic[c] += 1
+			
 		else:
 			c_dic[c] = 1
 	

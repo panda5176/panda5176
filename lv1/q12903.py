@@ -5,6 +5,7 @@ def solution(s):
     
     if len(s)%2 == 1:
         answer = s[h]
+        
     else:
         answer = s[h-1:h+1]
     

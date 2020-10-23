@@ -116,4 +116,49 @@ def cons(fasta):
             ' '.join(map(str, profile_matrix['G'])),
             ' '.join(map(str, profile_matrix['T']))
         )
+
+def fibd(n, m):
+    """Mortal Fibonacci Rabbits"""
+    rabbits = [0 for generation in range(m-1)] + [1]
+    for _month in range(n-1):
+        born = 0
+        for generation in range(m):
+            if generation == m-1:
+                rabbits[generation] = born
+            else:
+                born += rabbits[generation]
+                rabbits[generation] = rabbits[generation+1]
+    return sum(rabbits)
     
+def grph(fasta):
+    """Overlap Graphs"""
+    strings = parse_fasta(fasta)
+    overlap_graphs = []
+    for key1, item1 in strings.items():
+        for key2, item2 in strings.items():
+            if key1 == key2: continue
+            if item1[-3:] == item2[:3]:
+                overlap_graphs.append((key1, key2))
+    return overlap_graphs
+
+def iev(c1, c2, c3, c4, c5, c6):
+    """Calculating Expected Offspring"""
+    return (c1+c2+c3+c4*(3/4)+c5*(1/2)+c6*0)*2
+
+def lcsm(fasta):
+    """Finding a Shared Motif"""
+    sequences = list(parse_fasta(fasta).values())
+    seq0 = sequences[0]
+    lcs = ""
+    for i in range(len(seq0)-1):
+        for j in range(i+1, len(seq0)):
+            substring = seq0[i:j+1]
+            all_passed = True
+            for k in range(1, len(sequences)):
+                seq_target = sequences[k]
+                if substring not in seq_target:
+                    all_passed = False
+                    break
+            if all_passed and len(substring) > len(lcs):
+                lcs = substring
+    return lcs

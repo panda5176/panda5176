@@ -162,3 +162,52 @@ def lcsm(fasta):
             if all_passed and len(substring) > len(lcs):
                 lcs = substring
     return lcs
+
+def lia(k, N):
+    """Independent Alleles"""
+    from math import factorial
+    sigma, c = 0, 2**k
+    for n in range(N):
+        sigma \
+            += (factorial(c)/factorial(n)/factorial(c-n)) \
+                * (3/4)**(c-n) * (1/4)**n
+    return round(1-sigma, 3)
+
+def mprt(IDs):
+    """Finding a Protein Motif"""
+    pass
+
+def mrna(string):
+    """Inferring mRNA from Protein"""
+    pass
+
+def orf(fasta):
+    """Open Reading Frames"""
+    pass
+
+def perm(n):
+    """Enumerating Gene Orders"""
+    from itertools import permutations
+    return list(permutations(range(1, n+1), n))
+
+def prtm(P):
+    """Calculating Protein Mass"""
+    pass
+
+def revp(fasta):
+    """Locating Restriction Sites"""
+    pass
+
+def splc(fasta):
+    """RNA Splicing"""
+    pass
+
+def lexf(symbols, n):
+    """Enumerating k-mers Lexicographically"""
+    pass
+
+def lgis(file):
+    """Longest Increasing Subsequence"""
+    with open(file, 'r') as fr:
+        pi = fr.read().strip().split('\n')[1].split()
+    pass

@@ -73,18 +73,20 @@ def prot(s):
         "UCG":'S',"CCG":'P',"ACG":'T',"GCG":'A',
         "UAU":'Y',"CAU":'H',"AAU":'N',"GAU":'D',
         "UAC":'Y',"CAC":'H',"AAC":'N',"GAC":'D',
-        "UAA":'Stop',"CAA":'Q',"AAA":'K',"GAA":'E',
-        "UAG":'Stop',"CAG":'Q',"AAG":'K',"GAG":'E',
+        "UAA":'*',"CAA":'Q',"AAA":'K',"GAA":'E',
+        "UAG":'*',"CAG":'Q',"AAG":'K',"GAG":'E',
         "UGU":'C',"CGU":'R',"AGU":'S',"GGU":'G',
         "UGC":'C',"CGC":'R',"AGC":'S',"GGC":'G',
-        "UGA":'Stop',"CGA":'R',"AGA":'R',"GGA":'G',
+        "UGA":'*',"CGA":'R',"AGA":'R',"GGA":'G',
         "UGG":'W',"CGG":'R',"AGG":'R',"GGG":'G'
     }
     protein = ""
     for i in range(len(s))[::3]:
-        aa = codon_table[s[i:i+3]]
-        if aa != 'Stop':
-            protein += aa
+        frame = s[i:i+3]
+        if len(frame) == 3:
+            aa = codon_table[s[i:i+3]]
+            if aa != '*': # '*' can be substituted with "Stop".
+                protein += aa
     return protein
 
 def subs(s, t):
@@ -179,11 +181,37 @@ def mprt(IDs):
 
 def mrna(string):
     """Inferring mRNA from Protein"""
-    pass
+    codon_counts = {'*':3,
+        'F':2,'L':6,'S':6,'Y':2,'C':2,'W':1,'P':4,'H':2,'Q':2,'R':6,
+        'I':3,'M':1,'T':4,'N':2,'K':2,'V':4,'A':4,'D':2,'E':2,'G':4
+    }
+    mrna_counts_million = 1
+    for aa in string + '*':
+        mrna_counts_million *= codon_counts[aa]
+        if mrna_counts_million >= 1e6:
+            mrna_counts_million %= 1e6
+    return int(mrna_counts_million)
+
+def revc_rna(s):
+    """Complementing a Strand of RNA"""
+    sc = ""
+    for nt in s:
+        if nt == 'A': sc += 'U'
+        elif nt == 'U': sc += 'A'
+        elif nt == 'C': sc += 'G'
+        elif nt == 'G': sc += 'C'
+    return sc[::-1]
 
 def orf(fasta):
     """Open Reading Frames"""
-    pass
+    dna = list(parse_fasta(fasta).values())[0]
+    mrna = rna(dna)
+    orfs = [
+        prot(mrna), prot(mrna[1:]), prot(mrna[2:]),
+        prot(revc_rna(mrna)), prot(revc_rna(mrna)[1:]), prot(revc_rna(mrna)[2:])
+    ]
+        
+    print(orfs)    
 
 def perm(n):
     """Enumerating Gene Orders"""

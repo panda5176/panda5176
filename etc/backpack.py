@@ -1,4 +1,5 @@
 def backpack(jewels, weight_max):
+    """Backpack a.k.a. knapsack problem with dinamic programming."""
     len_r = len(jewels) + 1
     len_c = weight_max + 1
     dp_table = [[0 for c in range(len_c)] for r in range(len_r)]

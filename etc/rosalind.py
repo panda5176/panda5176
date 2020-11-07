@@ -1,3 +1,5 @@
+"""http://rosalind.info/problems/list-view/"""
+
 def dna(s):
     """Counting DNA Nucleotides"""
     return "%s %s %s %s" %(
@@ -37,8 +39,7 @@ def parse_fasta(fasta):
 
 def gc(fasta):
     """Computing GC Content"""
-    strings = parse_fasta(fasta)
-    gc_contents = {}
+    strings, gc_contents = parse_fasta(fasta), {}
     for name in strings.keys():
         sequence = strings[name]
         gc_contents[name] = \
@@ -85,8 +86,9 @@ def prot(s):
         frame = s[i:i+3]
         if len(frame) == 3:
             aa = codon_table[s[i:i+3]]
-            if aa != '*': # '*' can be substituted with "Stop".
-                protein += aa
+            # if aa != 'Stop':
+            #     protein += aa
+            protein += aa
     return protein
 
 def subs(s, t):
@@ -134,8 +136,7 @@ def fibd(n, m):
     
 def grph(fasta):
     """Overlap Graphs"""
-    strings = parse_fasta(fasta)
-    overlap_graphs = []
+    strings, overlap_graphs = parse_fasta(fasta), []
     for key1, item1 in strings.items():
         for key2, item2 in strings.items():
             if key1 == key2: continue
@@ -150,8 +151,7 @@ def iev(c1, c2, c3, c4, c5, c6):
 def lcsm(fasta):
     """Finding a Shared Motif"""
     sequences = list(parse_fasta(fasta).values())
-    seq0 = sequences[0]
-    lcs = ""
+    seq0, lcs = sequences[0], ""
     for i in range(len(seq0)-1):
         for j in range(i+1, len(seq0)):
             substring = seq0[i:j+1]
@@ -170,22 +170,30 @@ def lia(k, N):
     from math import factorial
     sigma, c = 0, 2**k
     for n in range(N):
-        sigma \
-            += (factorial(c)/factorial(n)/factorial(c-n)) \
-                * (3/4)**(c-n) * (1/4)**n
+        sigma += (1/4)**n * (3/4)**(c-n) \
+            * (factorial(c)/factorial(n)/factorial(c-n)) 
     return round(1-sigma, 3)
 
 def mprt(IDs):
     """Finding a Protein Motif"""
-    pass
+    import requests, re
+    IDs_motif, N_Gly_motif = {}, 'N[^P][ST][^P]'
+    for ID in IDs:
+        seq, locs = ''.join(requests.get(
+            "http://www.uniprot.org/uniprot/%s.fasta" % ID
+            ).text.strip().split('\n')[1:]), []
+        for i in range(len(seq)-3):
+            if re.fullmatch(N_Gly_motif, seq[i:i+4]):
+                locs.append(str(i+1))
+        if locs: IDs_motif[ID] = locs
+    return IDs_motif
 
 def mrna(string):
     """Inferring mRNA from Protein"""
-    codon_counts = {'*':3,
+    codon_counts, mrna_counts_million = {'*':3,
         'F':2,'L':6,'S':6,'Y':2,'C':2,'W':1,'P':4,'H':2,'Q':2,'R':6,
         'I':3,'M':1,'T':4,'N':2,'K':2,'V':4,'A':4,'D':2,'E':2,'G':4
-    }
-    mrna_counts_million = 1
+    }, 1
     for aa in string + '*':
         mrna_counts_million *= codon_counts[aa]
         if mrna_counts_million >= 1e6:
@@ -204,14 +212,17 @@ def revc_rna(s):
 
 def orf(fasta):
     """Open Reading Frames"""
-    dna = list(parse_fasta(fasta).values())[0]
-    mrna = rna(dna)
-    orfs = [
-        prot(mrna), prot(mrna[1:]), prot(mrna[2:]),
-        prot(revc_rna(mrna)), prot(revc_rna(mrna)[1:]), prot(revc_rna(mrna)[2:])
-    ]
-        
-    print(orfs)    
+    rna_seq = rna(list(parse_fasta(fasta).values())[0])
+    rc_rna_seq, orfs = revc_rna(rna_seq), []
+    for i in range(len(rna_seq)-2):
+        if rna_seq[i:i+3] == 'AUG':
+            prt_seq = prot(rna_seq[i:])
+            if '*' in prt_seq: orfs.append(prt_seq.split('*')[0])
+    for j in range(len(rc_rna_seq)-2):
+        if rc_rna_seq[j:j+3] == 'AUG':
+            prt_seq = prot(rc_rna_seq[j:])
+            if '*' in prt_seq: orfs.append(prt_seq.split('*')[0])
+    return set(orfs)
 
 def perm(n):
     """Enumerating Gene Orders"""
@@ -220,22 +231,45 @@ def perm(n):
 
 def prtm(P):
     """Calculating Protein Mass"""
-    pass
+    monoisotopic_mass_table, weight = {
+        'A':71.03711,'C':103.00919,'D':115.02694,'E':129.04259,
+        'G':57.02146,'F':147.06841,'H':137.05891,'I':113.08406,
+        'S':87.03203,'K':128.09496,'L':113.08406,'M':131.04049,
+        'P':97.05276,'Q':128.05858,'R':156.10111,'N':114.04293,
+        'V':99.06841,'T':101.04768,'W':186.07931,'Y':163.06333
+    }, 0
+    for aa in P: weight += monoisotopic_mass_table[aa]
+    return round(weight, 3)
 
 def revp(fasta):
     """Locating Restriction Sites"""
-    pass
+    seq, palindromes = list(parse_fasta(fasta).values())[0], {}
+    for len_p in range(4,13,2):
+        for i in range(len(seq)-len_p+1):
+            if seq[i:i+len_p] == revc(seq[i:i+len_p]):
+                palindromes[i+1] = len_p
+    return palindromes
 
 def splc(fasta):
     """RNA Splicing"""
-    pass
+    seqs = list(parse_fasta(fasta).values())
+    s = seqs[0]
+    for intron in seqs[1:]: s = ''.join(s.split(intron))
+    return prot(rna(s))
 
 def lexf(symbols, n):
     """Enumerating k-mers Lexicographically"""
-    pass
+    def recursive(symbols, k_mers, k):
+        """Recursively append base to k-mers"""
+        if k == 0: return k_mers
+        k_mers_tmp = []
+        for k_mer in k_mers:
+            for base in symbols: k_mers_tmp.append(k_mer + base)
+        return recursive(symbols, k_mers_tmp, k-1)
+    return recursive(''.join(symbols.split()), symbols.split(), n-1)
 
 def lgis(file):
     """Longest Increasing Subsequence"""
     with open(file, 'r') as fr:
-        pi = fr.read().strip().split('\n')[1].split()
+        _pi = fr.read().strip().split('\n')[1].split()
     pass

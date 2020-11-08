@@ -47,3 +47,11 @@ def bind(lbsv):
 def deg(lbsv):
     """Degree Array"""
     edge_lists = read_lbsv(lbsv)
+    graph, D = [[] for vertex in range(int(edge_lists[0].split()[0]))], []
+    for edge in edge_lists[1:]:
+        u, v = list(map(int, edge.split()))
+        graph[u-1].append(v-1)
+        graph[v-1].append(u-1)
+    for vertex in graph:
+        D.append(len(vertex))
+    return D

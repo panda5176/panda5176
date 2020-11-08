@@ -30,20 +30,18 @@ def bind(lbsv):
     n, _m, A, B = int(values[0]), int(values[1]), \
         list(map(int, values[2].split())), list(map(int, values[3].split()))
     idxes = []
-    def binary_search(b, n, A, origin = 0):
-        idx = n//2
-        if n <= 2:
-            if b == A[0]: return origin+1
-            elif n == 2 and b == A[1]: return origin+2
-            else: return -1
-        if b < A[idx]:
-            idx = binary_search(b, len(A[:idx]), A[:idx], origin)
-        elif b > A[idx]:
-            idx = binary_search(b, len(A[idx:]), A[idx:], origin + idx)
-        else:
-            return origin + idx + 1
+    def binary_search(b, A, n, origin = 0):
+        if n == origin or n == origin+1:
+            if b == A[origin]: return origin+1
+            elif b == A[n]: return n+1
+            else: return -1        
+        idx = (origin + n)//2
+        median = A[idx]
+        if b < median: idx = binary_search(b, A, idx, origin)
+        elif b > median: idx = binary_search(b, A, n, idx)
+        else: return idx+1
         return idx
-    for b in B: idxes.append(binary_search(b, n, A))
+    for b in B: idxes.append(binary_search(b, A, n))
     return idxes
 
 def deg(lbsv):

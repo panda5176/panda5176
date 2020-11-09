@@ -55,3 +55,47 @@ def deg(lbsv):
     for vertex in graph:
         D.append(len(vertex))
     return D
+
+def ins(lbsv):
+    """Insertion Sort"""
+    values = read_lbsv(lbsv)
+    n, A = int(values[0]), list(map(int, values[1].split()))
+    disorder, swaps = True, 0
+    while disorder:
+        disorder = False
+        for i in range(n-1):
+            if A[i] > A[i+1]:
+                A[i], A[i+1] = A[i+1], A[i]
+                disorder, swaps = True, swaps+1
+    return swaps
+
+def ddeg(lbsv):
+    """Double-Degree Array"""
+    edge_lists = read_lbsv(lbsv)
+    vertices_range = range(int(edge_lists[0].split()[0]))
+    graph = [[] for vertex in vertices_range]
+    D = [0 for vertex in vertices_range]
+    for edge in edge_lists[1:]:
+        u, v = list(map(int, edge.split()))
+        graph[u-1].append(v-1)
+        graph[v-1].append(u-1)
+    for i in vertices_range:
+        for neighbor in graph[i]: D[i] += len(graph[neighbor])
+    return D
+
+def maj(lbsv):
+    """Majority Element"""
+    """Boyer–Moore majority vote algorithm"""
+    values = read_lbsv(lbsv)
+    _k, n = list(map(int, values[0].split()))
+    A = []
+    for array in values[1:]:
+        array = list(map(int, array.split()))
+        mode, count = array[0], 1
+        for m in array[1:]:
+            if mode == m: count += 1
+            else: count -= 1
+            if count == 0: mode, count = m, 1
+        if count*2 > n: A.append(mode)
+        else: A.append(-1)
+    return A

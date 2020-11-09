@@ -17,18 +17,20 @@ def read_lbsv(lbsv):
     with open(lbsv, 'r') as f: values = f.read().strip().split('\n')
     return values
 
-def write_lbsv(values):
+def write_lbsv(values, lbsv):
     """Writing line-break-seperated values file"""
-    lbsv = "o.lbsv"
     with open(lbsv, 'w') as f:
-        for value in values: f.write(str(value) + '\n')
+        for value in values:
+            if type(value) == int: f.write(str(value) + '\n')
+            elif type(value) == list: 
+                f.write(' '.join(list(map(str, value))) + '\n')
     return None
 
 def bind(lbsv):
     """Binary Search"""
     values = read_lbsv(lbsv)
-    n, _m, A, B = int(values[0]), int(values[1]), \
-        list(map(int, values[2].split())), list(map(int, values[3].split()))
+    n, _m, A, B = (int(values[0]), int(values[1]),
+        list(map(int, values[2].split())), list(map(int, values[3].split())))
     idxes = []
     def binary_search(b, A, n, origin = 0):
         if n == origin or n == origin+1:
@@ -96,6 +98,47 @@ def maj(lbsv):
             if mode == m: count += 1
             else: count -= 1
             if count == 0: mode, count = m, 1
+        count = 0
+        for m in array:
+            if mode == m: count += 1
         if count*2 > n: A.append(mode)
         else: A.append(-1)
     return A
+
+def mer(lbsv):
+    """Merge Two Sorted Arrays"""
+    values = read_lbsv(lbsv)
+    _n, A, _m, B, C, i_A, i_B = (
+        int(values[0]), list(map(int, values[1].split())),
+        int(values[2]), list(map(int, values[3].split())), [], 0, 0)
+    while A and B:
+        if A[i_A] < B[i_B]: C.append(A.pop(0))
+        else: C.append(B.pop(0))
+    return C + A + B
+
+def a2sum(lbsv):
+    """2SUM"""
+    values = read_lbsv(lbsv)
+    _k, n = list(map(int, values[0].split()))
+    hash_table, A = {}, []
+    for array in values[1:]:
+        array, A, hash_table = list(map(int, array.split())), A + [-1], {}
+        for i in range(n):
+            p = array[i]
+            if p in hash_table:
+                A[-1] = sorted([i+1, hash_table[p]+1])
+                break
+            else: hash_table[-p] = i
+    return A
+
+def bfs(lbsv):
+    """Breadth-First Search"""
+    edge_lists = read_lbsv(lbsv)
+    vertices_range = range(int(edge_lists[0].split()[0]))
+    graph = [[] for vertex in vertices_range]
+    D = [0 for vertex in vertices_range]
+    for edge in edge_lists[1:]:
+        u, v = list(map(int, edge.split()))
+        graph[u-1].append(v-1)
+        graph[v-1].append(u-1)
+    return D

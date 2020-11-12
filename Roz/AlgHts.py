@@ -46,14 +46,21 @@ def bind(lbsv):
     for b in B: idxes.append(binary_search(b, A, n))
     return idxes
 
-def deg(lbsv):
-    """Degree Array"""
+def read_simple_graph(lbsv):
+    """Reading simple un-directed grapth in the edge list format"""
     edge_lists = read_lbsv(lbsv)
-    graph, D = [[] for vertex in range(int(edge_lists[0].split()[0]))], []
+    vertices_range = range(int(edge_lists[0].split()[0]))
+    graph = [[] for vertex in vertices_range]
     for edge in edge_lists[1:]:
         u, v = list(map(int, edge.split()))
         graph[u-1].append(v-1)
         graph[v-1].append(u-1)
+    return graph, vertices_range
+
+def deg(lbsv):
+    """Degree Array"""
+    graph, _vertices_range = read_simple_graph(lbsv)
+    D = []
     for vertex in graph:
         D.append(len(vertex))
     return D
@@ -73,14 +80,8 @@ def ins(lbsv):
 
 def ddeg(lbsv):
     """Double-Degree Array"""
-    edge_lists = read_lbsv(lbsv)
-    vertices_range = range(int(edge_lists[0].split()[0]))
-    graph = [[] for vertex in vertices_range]
+    graph, vertices_range = read_simple_graph(lbsv)
     D = [0 for vertex in vertices_range]
-    for edge in edge_lists[1:]:
-        u, v = list(map(int, edge.split()))
-        graph[u-1].append(v-1)
-        graph[v-1].append(u-1)
     for i in vertices_range:
         for neighbor in graph[i]: D[i] += len(graph[neighbor])
     return D
@@ -133,12 +134,18 @@ def a2sum(lbsv):
 
 def bfs(lbsv):
     """Breadth-First Search"""
-    edge_lists = read_lbsv(lbsv)
-    vertices_range = range(int(edge_lists[0].split()[0]))
-    graph = [[] for vertex in vertices_range]
-    D = [0 for vertex in vertices_range]
-    for edge in edge_lists[1:]:
-        u, v = list(map(int, edge.split()))
-        graph[u-1].append(v-1)
-        graph[v-1].append(u-1)
+    graph, vertices_range = read_simple_graph(lbsv)
+    D, queue = [0] + [-1 for vertex in vertices_range][1:], [(0, 1)]
+    while queue:
+        vertex, depth = queue.pop(0)
+        for vertex_next in graph[vertex]:
+            if D[vertex_next] == -1:
+                queue.append((vertex_next, depth+1))
+                D[vertex_next] += depth+1
     return D
+
+def cc(lbsv):
+    """Connected Components"""
+    """Depth-first search"""
+    graph, _vertices_range = read_simple_graph(lbsv)
+    print(graph)

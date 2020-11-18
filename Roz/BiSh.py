@@ -270,6 +270,77 @@ def lexf(symbols, n):
 
 def lgis(file):
     """Longest Increasing Subsequence"""
-    with open(file, 'r') as fr:
-        _pi = fr.read().strip().split('\n')[1].split()
     pass
+
+def along(fasta):
+    """Genome Assembly as Shortest Superstring"""
+    pass
+
+def pmch(s):
+    """Perfect Matchings and RNA Secondary Structures"""
+    pass
+
+def pper(n, k):
+    """Partial Permutations"""
+    p = 1
+    for i in range(n-k+1, n+1):
+        p *= i
+        if p >= 1e6: p %= 1e6
+    return int(p)
+
+def prob(s, A):
+    """Introduction to Random Strings"""
+    from math import log10
+    gc_s = s.count('G') + s.count('C')
+    at_s, B = len(s) - gc_s, []
+    for gc in A:
+        B.append(round(log10(((gc/2) ** gc_s) * (((1-gc)/2) ** at_s)), 3))
+    return B
+
+def sign(n):
+    """Enumerating Oriented Gene Orderings"""
+    pass
+
+def sseq(fasta):
+    """Finding a Spliced Motif"""
+    s, t = list(parse_fasta(fasta).values())
+    i_t, indices, len_t = 0, [], len(t)
+    for i_s in range(len(s)):
+        if s[i_s] == t[i_t]:
+            indices, i_t = indices + [i_s+1], i_t+1
+            if i_t == len_t: break
+    return indices
+
+def tran(fasta):
+    """Transitions and Transversions"""
+    s1, s2 = list(parse_fasta(fasta).values())
+    transition, transversion = 0, 0
+    for i in range(len(s1)):
+        nt1, nt2 = s1[i], s2[i]
+        if nt1 != nt2:
+            if ((nt1, nt2) == ('A', 'G') or (nt1, nt2) == ('G', 'A')
+                or (nt1, nt2) == ('C', 'T') or (nt1, nt2) == ('T', 'C')):
+                transition += 1
+            else: transversion += 1
+    return round(transition/transversion, 11)
+
+def lexv(A, n):
+    """Ordering Strings of Varying Length Lexicographically"""
+    pass
+
+def rstr(N, x, s):
+    """Matching Random Motifs"""
+    p_s = 1
+    for nt in s:
+        if nt == 'G' or nt == 'C': p_s *= x/2
+        else: p_s *= (1-x)/2
+    return round(1 - (1-p_s) ** N, 3)
+
+def eval(n, s, A):
+    """Expected Number of Restriction Sites"""
+    gc_s, len_s = s.count('G') + s.count('C'), len(s)
+    at_s, B = len_s - gc_s, []
+    for gc in A:
+        p = ((gc/2) ** gc_s) * (((1-gc)/2) ** at_s) * (n-len_s+1)
+        B.append(round(p, 3))
+    return B

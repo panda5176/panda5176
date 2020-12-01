@@ -1,4 +1,4 @@
-### Physcopatens
+### Derrick Kim (physcopatens12)
 - Biological Data Scientist
 - https://github.com/physcopatens12
 - panda5176@gmail.com
@@ -10,17 +10,13 @@
 - Research Associates I in G+FLAS Life Sciences, Inc. (2018.05 ~ 2020.11)
 - Bioinformatician in 3billion, Inc. (2020.12 ~ now)
 
+### Tech Stack
+- Python & Biopython
+- Scikit-learn & Tensorflow & Keras & PyTorch
+
 ### Interests
 - Bioinformatics
 - Diagnostic genetics
 - Functional Genomics
 - Ecology & Evolution
 - Artificial Intelligence
-- Game Engine
-
-### Tech Stack
-- Python & R
-- Biopython
-- Scikit-learn
-- Tensorflow & Keras
-- PyTorch

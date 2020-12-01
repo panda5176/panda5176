@@ -12,7 +12,7 @@
 
 ### Tech Stack
 - Python & Biopython
-- Scikit-learn & Tensorflow & Keras & PyTorch
+- scikit-learn & TensorFlow & Keras & PyTorch
 
 ### Interests
 - Bioinformatics

@@ -1,7 +1,7 @@
-### Derrick Kim (physcopatens12)
+### Derrick Kim (panda5176)
 - Biological Data Scientist
-- https://github.com/physcopatens12
-- https://physcopatens12.github.io
+- https://github.com/panda5176
+- https://panda5176.github.io
 - panda5176@gmail.com
 
 ### Career

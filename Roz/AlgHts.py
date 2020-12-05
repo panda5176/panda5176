@@ -148,4 +148,57 @@ def cc(lbsv):
     """Connected Components"""
     """Depth-first search"""
     graph, _vertices_range = read_simple_graph(lbsv)
-    print(graph)
+    queue = graph.pop(0)
+    graph, connected_components = [True] + graph, 1
+    for i, visited in enumerate(graph):
+        if not queue:
+            if visited == True: continue
+            graph[i], queue = True, queue + visited
+            connected_components += 1
+        while queue:
+            node = queue.pop(0)
+            if graph[node] != True:
+                queue += graph[node]
+                graph[node] = True
+    return connected_components
+
+def hea(lbsv):
+    """Building a Heap"""
+    """Max heap"""
+    import heapq
+    values = read_lbsv(lbsv)
+    _n, A, heap = int(values[0]), list(map(int, values[1].split())), []
+    for integer in A: heapq.heappush(heap, -integer)
+    return list(map(lambda x: -x, heap))
+
+def ms(lbsv):
+    """Merge Sort"""
+    values = read_lbsv(lbsv)
+    _n, A = int(values[0]), list(map(int, values[1].split()))
+    A = list(map(lambda x: [x], A))
+    while len(A) > 1:
+        A_merged = []
+        for i in range(len(A))[::2]:
+            if len(A) == i+1:
+                A_merged.append(A[i])
+                break
+            left, right, merged = A[i], A[i+1], []
+            while left and right:
+                if left[0] < right[0]: merged.append(left.pop(0))
+                else: merged.append(right.pop(0))
+            A_merged.append(merged + left + right)
+        A = A_merged
+    return A
+
+def par(lbsv):
+    """2-Way Partition"""
+    values = read_lbsv(lbsv)
+    _n, A = int(values[0]), list(map(int, values[1].split()))
+    element1, small_list, large_list = A.pop(0), [], []
+    for a in A:
+        if element1 > a: small_list.append(a)
+        else: large_list.append(a)
+    return small_list + [element1] + large_list
+
+if __name__ == '__main__':
+    write_lbsv([par('Roz/f.txt')], 'Roz/o.txt')

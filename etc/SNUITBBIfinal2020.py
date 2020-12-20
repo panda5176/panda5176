@@ -1,7 +1,7 @@
-'''
+"""
 2020-1 IT basics for bioinformatics final, part 2.
 Written in Python v3.7, Scikit-learn v0.22.
-'''
+"""
 
 import pandas as pd
 import numpy as np
@@ -22,13 +22,18 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
-from sklearn.metrics.cluster \
-    import homogeneity_score, completeness_score, v_measure_score, \
-        adjusted_rand_score, adjusted_mutual_info_score, silhouette_score
+from sklearn.metrics.cluster import (
+    homogeneity_score,
+    completeness_score,
+    v_measure_score,
+    adjusted_rand_score,
+    adjusted_mutual_info_score,
+    silhouette_score,
+)
 
 
 def Q1():
-    '''
+    """
     1.	(regression and PCA) Perform regression analysis using \
         all the attributes given ‘qsar’ dataset. (10 points)
         A. (regression) Perform linear regression using all the attributes \
@@ -49,24 +54,34 @@ def Q1():
             7) nN
             8) C-040
             9) quantitative response, LC50 [-LOG(mol/L)]
-    '''
+    """
 
     f1 = "qsar_aquatic_toxicity.csv"
 
     df = pd.read_csv(
-        f1, sep = ';', header = None, names = [
-            "TPSA", "SAacc", "H-050", "MLOGP", 
-            "RDCHI", "GATS1p", "nN", "C-040", 
-            "LC50"
-            ]
-        )
+        f1,
+        sep=";",
+        header=None,
+        names=[
+            "TPSA",
+            "SAacc",
+            "H-050",
+            "MLOGP",
+            "RDCHI",
+            "GATS1p",
+            "nN",
+            "C-040",
+            "LC50",
+        ],
+    )
     print(df.head())
     print(df.describe())
 
     df_x = df.iloc[:, :-1]
     df_y = df.iloc[:, -1]
     x_train, x_test, y_train, y_test = train_test_split(
-        df_x, df_y, test_size = 0.2, random_state = 28)
+        df_x, df_y, test_size=0.2, random_state=28
+    )
 
     lr_model = LinearRegression()
     lr_model.fit(x_train, y_train)
@@ -87,16 +102,16 @@ def Q1():
     # "GATS1p": moderate negative (Pearson r: -0.41)
     # "nN": weak negative (Pearson r: -0.19)
 
-    pca = PCA(n_components = 2)
+    pca = PCA(n_components=2)
     PCs = pca.fit_transform(df_x)
-    df_principal = pd.DataFrame(data = PCs, columns = ['PC1', 'PC2'])
-    df_final = pd.concat([df_principal, df_y], axis = 1)
+    df_principal = pd.DataFrame(data=PCs, columns=["PC1", "PC2"])
+    df_final = pd.concat([df_principal, df_y], axis=1)
     print(pca.explained_variance_ratio_)
     # Explained variances of PC1 & PC2: 93.87% & 6.04%
 
 
 def Q2():
-    '''
+    """
     2.	Perform clustering of ‘seeds’ dataset using K-means (K=3) \
         and hierarchical clustering. (20 points)
         A. (K-means) Report homogeneity, completeness, V-means, ARI, AMI, \
@@ -125,24 +140,32 @@ def Q2():
             7. length of kernel groove.
         All of these parameters were real-valued continuous.
             (8. three different varieties of wheat)
-    '''
+    """
 
     f2 = "seeds_dataset.txt"
 
     df = pd.read_csv(
-        f2, delim_whitespace = True, header = None, names = [
-            "area A", "perimeter P", "compactness C", "length of kernel", 
-            "width of kernel", "assymmetry coefficient", 
-            "length of kernel groove", "varieties"
-            ]
-        )
+        f2,
+        delim_whitespace=True,
+        header=None,
+        names=[
+            "area A",
+            "perimeter P",
+            "compactness C",
+            "length of kernel",
+            "width of kernel",
+            "assymmetry coefficient",
+            "length of kernel groove",
+            "varieties",
+        ],
+    )
     print(df.head())
     print(df.describe())
 
     df_x = df.iloc[:, :-1]
     df_y = df.iloc[:, -1]
 
-    km_model = KMeans(n_clusters = 3).fit(df_x)
+    km_model = KMeans(n_clusters=3).fit(df_x)
     pred_y = km_model.predict(df_x)
 
     print("Homogeneity score: %.2f" % homogeneity_score(df_y, pred_y))
@@ -158,7 +181,7 @@ def Q2():
     # AMI score: 0.69
     # Silhouette score: 0.47
 
-    kf = KFold(n_splits = 5, shuffle = True)
+    kf = KFold(n_splits=5, shuffle=True)
     accuracy_score_list = []
     labels_list = []
 
@@ -166,30 +189,33 @@ def Q2():
         x_train, x_test = df_x.to_numpy()[idx_train], df_x.to_numpy()[idx_test]
         y_train, y_test = df_y.to_numpy()[idx_train], df_y.to_numpy()[idx_test]
 
-        km_model = KMeans(n_clusters = 3).fit(x_train)
+        km_model = KMeans(n_clusters=3).fit(x_train)
         y_pred = km_model.predict(x_test)
 
         labels = np.zeros_like(y_pred)
 
         for i in range(3):
-            mask = (y_pred == i)
+            mask = y_pred == i
             labels[mask] = mode(y_test[mask])[0]
 
         accuracy_score_list.append(accuracy_score(y_test, labels))
         labels_list += idx_test[y_test != labels].tolist()
 
     print("Accuracy score: %.2f" % mean(accuracy_score_list))
-    print("The list of instances of which predictions are inconsistent \
-        with the true label: ", sorted(labels_list))
+    print(
+        "The list of instances of which predictions are inconsistent \
+        with the true label: ",
+        sorted(labels_list),
+    )
     # Accuracy score: 0.90
     # The list of instances of which predictions are inconsistent \
     #     with the true label: [
-    #         16, 19, 26, 27, 37, 39, 60, 61, 62, 63, 69, 100, 
+    #         16, 19, 26, 27, 37, 39, 60, 61, 62, 63, 69, 100,
     #         122, 124, 132, 133, 134, 135, 137, 138, 139
     #         ]
 
-    ts_model = TSNE(n_components = 2, init = 'random').fit_transform(df_x)
-    km_model = KMeans(n_clusters = 3).fit(ts_model)
+    ts_model = TSNE(n_components=2, init="random").fit_transform(df_x)
+    km_model = KMeans(n_clusters=3).fit(ts_model)
     pred_y = km_model.predict(ts_model)
 
     print("Homogeneity score: %.2f" % homogeneity_score(df_y, pred_y))
@@ -207,16 +233,20 @@ def Q2():
     # 차원이 매우 크지 않기 때문에 embedding의 효과가 크지 않다.
 
     pred_y_euclidean = AgglomerativeClustering(
-        n_clusters = 3, affinity = 'euclidean', linkage = 'ward'
-        ).fit_predict(df_x)
+        n_clusters=3, affinity="euclidean", linkage="ward"
+    ).fit_predict(df_x)
     pred_y_model_manhattan = AgglomerativeClustering(
-        n_clusters = 3, affinity = 'manhattan', linkage = 'average'
-        ).fit_predict(df_x)
+        n_clusters=3, affinity="manhattan", linkage="average"
+    ).fit_predict(df_x)
 
-    print("Silhouette score with Euclidean metric: %.2f" \
-        % silhouette_score(df_x, pred_y_euclidean))
-    print("Silhouette score with Manhattan metric: %.2f" \
-        % silhouette_score(df_x, pred_y_model_manhattan))
+    print(
+        "Silhouette score with Euclidean metric: %.2f"
+        % silhouette_score(df_x, pred_y_euclidean)
+    )
+    print(
+        "Silhouette score with Manhattan metric: %.2f"
+        % silhouette_score(df_x, pred_y_model_manhattan)
+    )
     # Silhouette score with Euclidean metric: 0.45
     # Silhouette score with Manhattan metric: 0.44
     # Euclidean distance metric is better than Manhattan \
@@ -224,7 +254,7 @@ def Q2():
 
 
 def Q3():
-    '''
+    """
     3.	Perform classification of ‘Ecoli’ dataset using \
         all Naive Bayes / KNN / Decision Tree / Random Forests / SVM methods. \
         (15 points)
@@ -249,23 +279,33 @@ def Q3():
         8. alm2: score of ALOM program after excluding \
             putative cleavable signal regions from the sequence.
         (9. protein localization sites)
-    '''
+    """
 
     f3 = "ecoli.data"
 
     df = pd.read_csv(
-        f3, delim_whitespace = True, header = None, names = [
-            "Sequence Name", "mcg", "gvh", "lip", "chg", 
-            "aac", "alm1", "alm2", "protein localization sites"
-            ]
-        )
+        f3,
+        delim_whitespace=True,
+        header=None,
+        names=[
+            "Sequence Name",
+            "mcg",
+            "gvh",
+            "lip",
+            "chg",
+            "aac",
+            "alm1",
+            "alm2",
+            "protein localization sites",
+        ],
+    )
     # print(df.head())
     # print(df.describe())
 
     df_x = df.iloc[:, 1:-1]
     df_y = df.iloc[:, -1]
 
-    kf = KFold(n_splits = 5, shuffle = True)
+    kf = KFold(n_splits=5, shuffle=True)
     accuracy_score_list_GNB = []
     accuracy_score_list_BNB = []
     accuracy_score_list_MNB = []
@@ -289,9 +329,9 @@ def Q3():
         y_KNN = KNN_model.predict(x_test)
         DT_model = DecisionTreeClassifier().fit(x_train, y_train)
         y_DT = DT_model.predict(x_test)
-        RF_model = RandomForestClassifier(n_jobs = -1).fit(x_train, y_train)
+        RF_model = RandomForestClassifier(n_jobs=-1).fit(x_train, y_train)
         y_RF = RF_model.predict(x_test)
-        SVM_model = SVC(kernel = 'rbf').fit(x_train, y_train) # high-dimension
+        SVM_model = SVC(kernel="rbf").fit(x_train, y_train)  # high-dimension
         y_SVM = SVM_model.predict(x_test)
 
         accuracy_score_list_GNB.append(accuracy_score(y_test, y_GNB))
@@ -307,17 +347,27 @@ def Q3():
         # print(features[indices], importances[indices])
         # Rank of attributes are always same in every fold.
 
-    print("Accuracy score using Gaussian Naive Bayes: %.2f" \
-        % mean(accuracy_score_list_GNB))
-    print("Accuracy score using Bernoulli Naive Bayes: %.2f" \
-        % mean(accuracy_score_list_BNB))
-    print("Accuracy score using Multinomial Naive Bayes: %.2f" \
-        % mean(accuracy_score_list_MNB))
+    print(
+        "Accuracy score using Gaussian Naive Bayes: %.2f"
+        % mean(accuracy_score_list_GNB)
+    )
+    print(
+        "Accuracy score using Bernoulli Naive Bayes: %.2f"
+        % mean(accuracy_score_list_BNB)
+    )
+    print(
+        "Accuracy score using Multinomial Naive Bayes: %.2f"
+        % mean(accuracy_score_list_MNB)
+    )
     print("Accuracy score using KNN: %.2f" % mean(accuracy_score_list_KNN))
-    print("Accuracy score using Decision Tree: %.2f" \
-        % mean(accuracy_score_list_DT))
-    print("Accuracy score using Random Forests: %.2f" \
-        % mean(accuracy_score_list_RF))
+    print(
+        "Accuracy score using Decision Tree: %.2f"
+        % mean(accuracy_score_list_DT)
+    )
+    print(
+        "Accuracy score using Random Forests: %.2f"
+        % mean(accuracy_score_list_RF)
+    )
     print("Accuracy score using SVM: %.2f" % mean(accuracy_score_list_SVM))
     # Accuracy score using Gaussian Naive Bayes: 0.76
     # Accuracy score using Bernoulli Naive Bayes: 0.42
@@ -333,7 +383,7 @@ def Q3():
 
 
 def Q4():
-    '''
+    """
     4.	(Longest Common Sequence) Perform dynamic programming \
         on given two sequences X and Y. (15 points)
             X: TCTATATGCACCTGC
@@ -347,12 +397,12 @@ def Q4():
         D. (Smith-Waterman algorithm) Find a local alignment of X and Y \
             using match_score: +2, mismatch_penalty: -3, gap_penalty: -2. \
             (5 points)
-    '''
+    """
     X = "TCTATATGCACCTGC"
     Y = "ATGCCCCCCATGAC"
 
     def LCS_opti_struct(x, y):
-        '''
+        """
         (Memoization Version)
         LCS optimal structure:
             양 서열의 마지막 글자가 동일할 경우:
@@ -361,25 +411,25 @@ def Q4():
                 x 서열의 마지막 글자를 제외한 서열과 y 서열의 LCS optimal substructure
                 또는 y 서열의 마지막 글자를 제외한 서열과 x 서열의 LCS optimal substructure
                 중 최댓값.
-        '''
+        """
 
-        if (len(x) == 0 or len(y) == 0):
+        if len(x) == 0 or len(y) == 0:
             return 0
 
         elif x[-1] == y[-1]:
             return 1 + LCS_opti_struct(x[:-1], y[:-1])
 
         else:
-            return max(LCS_opti_struct(x, y[:-1]), LCS_opti_struct(x[:-1],y))
-        
+            return max(LCS_opti_struct(x, y[:-1]), LCS_opti_struct(x[:-1], y))
+
         return None
 
     # print("The length of LCS: ", LCS_opti_struct(X, Y))
 
     def LCS_DP_table(x, y):
-        '''
+        """
         (Tabulation Version)
-        '''
+        """
 
         x_len = len(x)
         y_len = len(y)
@@ -393,19 +443,19 @@ def Q4():
             for j in range(1, y_dim):
                 # print(i,j)
 
-                if x[i-1] == y[j-1]:
-                    DP_table[i][j] = DP_table[i-1][j-1] + 1
+                if x[i - 1] == y[j - 1]:
+                    DP_table[i][j] = DP_table[i - 1][j - 1] + 1
 
                 else:
-                    DP_table[i][j] = max(DP_table[i-1][j], DP_table[i][j-1])
-                
+                    DP_table[i][j] = max(DP_table[i - 1][j], DP_table[i][j - 1])
+
                 # print(DP_table)
 
         LCS = ""
         curr_x = x_len
         curr_y = y_len
 
-        while (curr_x > 0 and curr_y > 0):
+        while curr_x > 0 and curr_y > 0:
             # print(curr_x, curr_y, LCS[::-1])
 
             if x[curr_x - 1] == y[curr_y - 1]:
@@ -415,7 +465,7 @@ def Q4():
 
             elif DP_table[curr_x - 1][curr_y] > DP_table[curr_x][curr_y - 1]:
                 curr_x -= 1
-            
+
             else:
                 curr_y -= 1
 
@@ -439,16 +489,16 @@ def Q4():
                 # print(i,j)
                 scores = [0]
 
-                if x[i-1] == y[j-1]:
-                    scores.append(DP_table[i-1][j-1] + m)
+                if x[i - 1] == y[j - 1]:
+                    scores.append(DP_table[i - 1][j - 1] + m)
 
                 else:
-                    scores.append(DP_table[i-1][j-1] + mm)
+                    scores.append(DP_table[i - 1][j - 1] + mm)
 
-                scores.append(DP_table[i][j-1] + g)
-                scores.append(DP_table[i-1][j] + g)
+                scores.append(DP_table[i][j - 1] + g)
+                scores.append(DP_table[i - 1][j] + g)
                 # print(scores)
-                
+
                 DP_table[i][j] = max(scores)
                 # print(DP_table)
 
@@ -462,7 +512,7 @@ def Q4():
         curr_x = max_idx[0]
         curr_y = max_idx[1]
 
-        while (curr_x > 0 and curr_y > 0):
+        while curr_x > 0 and curr_y > 0:
             # print(curr_x, curr_y, ALN_x[::-1], ALN_y[::-1])
 
             if x[curr_x - 1] == y[curr_y - 1]:
@@ -475,7 +525,7 @@ def Q4():
                 ALN_x += x[curr_x - 1]
                 ALN_y += "-"
                 curr_x -= 1
-            
+
             else:
                 ALN_x += "-"
                 ALN_y += y[curr_y - 1]
@@ -484,8 +534,10 @@ def Q4():
         return DP_table, ALN_x[::-1], ALN_y[::-1]
 
     SW_result = Smith_Waterman(X, Y, +2, -3, -2)
-    print("The local alignment of X and Y: \n%s\n%s" \
-        % (SW_result[1], SW_result[2]))
+    print(
+        "The local alignment of X and Y: \n%s\n%s"
+        % (SW_result[1], SW_result[2])
+    )
 
 
 if __name__ == "__main__":

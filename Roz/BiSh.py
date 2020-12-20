@@ -1,6 +1,34 @@
 """http://rosalind.info/problems/list-view/"""
 
 
+def _parse_fasta(fasta):
+    """Parsing fasta file into dictionary. From gc"""
+    strings = {}
+    with open(fasta, "r") as fr:
+        for string in fr.read().strip().split(">")[1:]:
+            strings[string.split("\n")[0]] = "".join(string.split("\n")[1:])
+    return strings
+
+
+def _read_lbsv(lbsv):
+    """Reading line-break-seperated values file"""
+    values = []
+    with open(lbsv, "r") as f:
+        values = f.read().strip().split("\n")
+    return values
+
+
+def _write_lbsv(values, lbsv):
+    """Writing line-break-seperated values file"""
+    with open(lbsv, "w") as f:
+        for value in values:
+            if type(value) == int:
+                f.write(str(value) + "\n")
+            elif type(value) == list:
+                f.write(" ".join(list(map(str, value))) + "\n")
+    return None
+
+
 def dna(s):
     """Counting DNA Nucleotides"""
     return "%s %s %s %s" % (
@@ -42,18 +70,9 @@ def fib(n, k):
     return total
 
 
-def parse_fasta(fasta):
-    """Parsing fasta file into dictionary. From gc"""
-    strings = {}
-    with open(fasta, "r") as fr:
-        for string in fr.read().strip().split(">")[1:]:
-            strings[string.split("\n")[0]] = "".join(string.split("\n")[1:])
-    return strings
-
-
 def gc(fasta):
     """Computing GC Content"""
-    strings, gc_contents = parse_fasta(fasta), {}
+    strings, gc_contents = _parse_fasta(fasta), {}
     for name in strings.keys():
         sequence = strings[name]
         gc_contents[name] = (sequence.count("G") + sequence.count("C")) / len(
@@ -176,7 +195,7 @@ def subs(s, t):
 
 def cons(fasta):
     """Consensus and Profile"""
-    sequences = list(parse_fasta(fasta).values())
+    sequences = list(_parse_fasta(fasta).values())
     seq_range = range(len(sequences[0]))
     profile_matrix = {
         "A": [0 for t in seq_range],
@@ -216,7 +235,7 @@ def fibd(n, m):
 
 def grph(fasta):
     """Overlap Graphs"""
-    strings, overlap_graphs = parse_fasta(fasta), []
+    strings, overlap_graphs = _parse_fasta(fasta), []
     for key1, item1 in strings.items():
         for key2, item2 in strings.items():
             if key1 == key2:
@@ -233,7 +252,7 @@ def iev(c1, c2, c3, c4, c5, c6):
 
 def lcsm(fasta):
     """Finding a Shared Motif"""
-    sequences = list(parse_fasta(fasta).values())
+    sequences = list(_parse_fasta(fasta).values())
     seq0, lcs = sequences[0], ""
     for i in range(len(seq0) - 1):
         for j in range(i + 1, len(seq0)):
@@ -334,7 +353,7 @@ def revc_rna(s):
 
 def orf(fasta):
     """Open Reading Frames"""
-    rna_seq = rna(list(parse_fasta(fasta).values())[0])
+    rna_seq = rna(list(_parse_fasta(fasta).values())[0])
     rc_rna_seq, orfs = revc_rna(rna_seq), []
     for i in range(len(rna_seq) - 2):
         if rna_seq[i : i + 3] == "AUG":
@@ -387,7 +406,7 @@ def prtm(P):
 
 def revp(fasta):
     """Locating Restriction Sites"""
-    seq, palindromes = list(parse_fasta(fasta).values())[0], {}
+    seq, palindromes = list(_parse_fasta(fasta).values())[0], {}
     for len_p in range(4, 13, 2):
         for i in range(len(seq) - len_p + 1):
             if seq[i : i + len_p] == revc(seq[i : i + len_p]):
@@ -397,7 +416,7 @@ def revp(fasta):
 
 def splc(fasta):
     """RNA Splicing"""
-    seqs = list(parse_fasta(fasta).values())
+    seqs = list(_parse_fasta(fasta).values())
     s = seqs[0]
     for intron in seqs[1:]:
         s = "".join(s.split(intron))
@@ -422,7 +441,43 @@ def lexf(symbols, n):
 
 def lgis(file):
     """Longest Increasing Subsequence"""
-    pass
+    values = _read_lbsv(file)
+    pi = list(map(int, values[1].split()))
+    lis_tmp, lds_tmp, lis_is, lds_is = [pi[0]], [pi[0]], [1], [1]
+    for i in range(1, len(pi)):
+        p = pi[i]
+        if p > lis_tmp[-1]:
+            lis_tmp.append(p)
+            lis_is.append(len(lis_tmp))
+        else:
+            for j in range(len(lis_tmp)):
+                if p < lis_tmp[j]:
+                    lis_tmp[j] = p
+                    lis_is.append(j + 1)
+                    break
+        if p < lds_tmp[-1]:
+            lds_tmp.append(p)
+            lds_is.append(len(lds_tmp))
+        else:
+            for j in range(len(lds_tmp)):
+                if p > lds_tmp[j]:
+                    lds_tmp[j] = p
+                    lds_is.append(j + 1)
+                    break
+    lis_count, lds_count, lis, lds = len(lis_tmp), len(lds_tmp), [], []
+    for i in range(len(lis_is))[::-1]:
+        if lis_is[i] == lis_count:
+            lis.append(pi[i])
+            lis_count -= 1
+        if lis_count == 0:
+            break
+    for i in range(len(lds_is))[::-1]:
+        if lds_is[i] == lds_count:
+            lds.append(pi[i])
+            lds_count -= 1
+        if lds_count == 0:
+            break
+    return [lis[::-1], lds[::-1]]
 
 
 def along(fasta):
@@ -463,7 +518,7 @@ def sign(n):
 
 def sseq(fasta):
     """Finding a Spliced Motif"""
-    s, t = list(parse_fasta(fasta).values())
+    s, t = list(_parse_fasta(fasta).values())
     i_t, indices, len_t = 0, [], len(t)
     for i_s in range(len(s)):
         if s[i_s] == t[i_t]:
@@ -475,7 +530,7 @@ def sseq(fasta):
 
 def tran(fasta):
     """Transitions and Transversions"""
-    s1, s2 = list(parse_fasta(fasta).values())
+    s1, s2 = list(_parse_fasta(fasta).values())
     transition, transversion = 0, 0
     for i in range(len(s1)):
         nt1, nt2 = s1[i], s2[i]
@@ -516,3 +571,7 @@ def eval(n, s, A):
         p = ((gc / 2) ** gc_s) * (((1 - gc) / 2) ** at_s) * (n - len_s + 1)
         B.append(round(p, 3))
     return B
+
+
+if __name__ == "__main__":
+    _write_lbsv(lgis("Roz/f.txt"), "Roz/o.txt")

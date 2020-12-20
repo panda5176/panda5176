@@ -18,7 +18,7 @@ def fibo(n):
     return recurrence(n - 1)
 
 
-def read_lbsv(lbsv):
+def _read_lbsv(lbsv):
     """Reading line-break-seperated values file"""
     values = []
     with open(lbsv, "r") as f:
@@ -26,7 +26,7 @@ def read_lbsv(lbsv):
     return values
 
 
-def write_lbsv(values, lbsv):
+def _write_lbsv(values, lbsv):
     """Writing line-break-seperated values file"""
     with open(lbsv, "w") as f:
         for value in values:
@@ -39,7 +39,7 @@ def write_lbsv(values, lbsv):
 
 def bind(lbsv):
     """Binary Search"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     n, _m, A, B = (
         int(values[0]),
         int(values[1]),
@@ -73,7 +73,7 @@ def bind(lbsv):
 
 def read_simple_graph(lbsv):
     """Reading simple un-directed grapth in the edge list format"""
-    edge_lists = read_lbsv(lbsv)
+    edge_lists = _read_lbsv(lbsv)
     vertices_range = range(int(edge_lists[0].split()[0]))
     graph = [[] for vertex in vertices_range]
     for edge in edge_lists[1:]:
@@ -94,7 +94,7 @@ def deg(lbsv):
 
 def ins(lbsv):
     """Insertion Sort"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     n, A = int(values[0]), list(map(int, values[1].split()))
     disorder, swaps = True, 0
     while disorder:
@@ -119,7 +119,7 @@ def ddeg(lbsv):
 def maj(lbsv):
     """Majority Element"""
     """Boyer–Moore majority vote algorithm"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _k, n = list(map(int, values[0].split()))
     A = []
     for array in values[1:]:
@@ -145,7 +145,7 @@ def maj(lbsv):
 
 def mer(lbsv):
     """Merge Two Sorted Arrays"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _n, A, _m, B, C, i_A, i_B = (
         int(values[0]),
         list(map(int, values[1].split())),
@@ -165,7 +165,7 @@ def mer(lbsv):
 
 def a2sum(lbsv):
     """2SUM"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _k, n = list(map(int, values[0].split()))
     hash_table, A = {}, []
     for array in values[1:]:
@@ -218,7 +218,7 @@ def hea(lbsv):
     """Max heap"""
     import heapq
 
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _n, A, heap = int(values[0]), list(map(int, values[1].split())), []
     for integer in A:
         heapq.heappush(heap, -integer)
@@ -227,7 +227,7 @@ def hea(lbsv):
 
 def ms(lbsv):
     """Merge Sort"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _n, A = int(values[0]), list(map(int, values[1].split()))
     A = list(map(lambda x: [x], A))
     while len(A) > 1:
@@ -249,7 +249,7 @@ def ms(lbsv):
 
 def par(lbsv):
     """2-Way Partition"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _n, A = int(values[0]), list(map(int, values[1].split()))
     element1, small_list, large_list = A.pop(0), [], []
     for a in A:
@@ -262,7 +262,7 @@ def par(lbsv):
 
 def a3sum(lbsv):
     """3SUM"""
-    values = read_lbsv(lbsv)
+    values = _read_lbsv(lbsv)
     _k, n = list(map(int, values[0].split()))
     A = []
 
@@ -290,4 +290,4 @@ def a3sum(lbsv):
 
 if __name__ == "__main__":
     # print(a3sum("Roz/f.txt"))
-    write_lbsv(a3sum("Roz/f.txt"), "Roz/o.txt")
+    _write_lbsv(a3sum("Roz/f.txt"), "Roz/o.txt")

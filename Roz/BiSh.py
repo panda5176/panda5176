@@ -482,12 +482,38 @@ def lgis(file):
 
 def along(fasta):
     """Genome Assembly as Shortest Superstring"""
-    pass
+    strings = list(_parse_fasta(fasta).values())
+    len_s, queue, sss = len(strings[0]), [strings.pop(0)], ""
+    while queue:
+        q = queue.pop(0)
+        right_half_q = q[-len_s // 2 :]
+        left_half_q = q[: -len_s // 2]
+        i_list = {}
+        for j in range(len(strings)):
+            string = strings[j]
+            try:
+                i_list[string.index(right_half_q)] = (string, j)
+            except ValueError:
+                continue
+        if i_list != {}:
+            i_closest = sorted(i_list)[0]
+            strings.append(left_half_q + i_list[i_closest][0][i_closest:])
+            strings.pop(i_list[i_closest][1])
+        else:
+            strings.append(q)
+        queue.append(strings.pop(0))
+        if strings == []:
+            sss = queue.pop(0)
+            break
+
+    return sss
 
 
 def pmch(s):
     """Perfect Matchings and RNA Secondary Structures"""
-    pass
+    from math import factorial
+
+    return factorial(s.count("A")) * factorial(s.count("G"))
 
 
 def pper(n, k):
@@ -574,4 +600,4 @@ def eval(n, s, A):
 
 
 if __name__ == "__main__":
-    _write_lbsv(lgis("Roz/f.txt"), "Roz/o.txt")
+    along("Roz/f.txt")

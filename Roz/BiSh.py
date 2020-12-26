@@ -22,7 +22,9 @@ def _write_lbsv(values, lbsv):
     """Writing line-break-seperated values file"""
     with open(lbsv, "w") as f:
         for value in values:
-            if type(value) == int:
+            if type(value) == str:
+                f.write(value + "\n")
+            elif type(value) == int:
                 f.write(str(value) + "\n")
             elif type(value) == list:
                 f.write(" ".join(list(map(str, value))) + "\n")
@@ -614,6 +616,94 @@ def tree(lbsv):
     return connected_components - 1
 
 
+def cat(s):
+    """Catalan Numbers and RNA Secondary Structures"""
+
+    def recursive(seq, memo={}):
+        if seq in memo:
+            return memo[seq]
+        if len(seq) <= 1:
+            return 1
+        c, nt0, cw, ccw = 0, seq[0], 1, 1
+        for i in range(1, len(seq), 2):
+            nt = seq[i]
+            if (
+                (nt0 == "A" and nt == "U")
+                or (nt0 == "U" and nt == "A")
+                or (nt0 == "C" and nt == "G")
+                or (nt0 == "G" and nt == "C")
+            ):
+                cw = recursive(seq[1:i], memo)
+                ccw = recursive(seq[i + 1 :], memo)
+                c += cw * ccw % 1e6
+        memo[seq] = c
+        return c
+
+    return recursive(s) % 1e6
+
+
+def corr(fasta):
+    """Error Correction in Reads"""
+    strings = list(_parse_fasta(fasta).values())
+    corrects, corrections = [], []
+    for i, s in enumerate(strings):
+        s_revc = revc(s)
+        if (s in strings[i + 1 :] or s_revc in strings[i + 1 :]) and (
+            s not in corrects or s_revc not in corrects
+        ):
+            corrects.append(s)
+    for s in strings:
+        if s in corrects or revc(s) in corrects:
+            continue
+        for c in corrects:
+            hd = 0
+            for i in range(len(s)):
+                if s[i] != c[i]:
+                    hd, i_wrong, right = hd + 1, i, c[i]
+                if hd >= 2:
+                    break
+            if hd == 1:
+                break
+        if hd == 1:
+            s_corrected = s[:i_wrong] + right + s[i_wrong + 1 :]
+            corrections.append(s + "->" + s_corrected)
+            continue
+        for c in corrects:
+            c_revc, hd = revc(c), 0
+            for i in range(len(s)):
+                if s[i] != c_revc[i]:
+                    hd, i_wrong, right = hd + 1, i, c_revc[i]
+                if hd >= 2:
+                    break
+            if hd == 1:
+                break
+        if hd == 1:
+            s_corrected = s[:i_wrong] + right + s[i_wrong + 1 :]
+            corrections.append(s + "->" + s_corrected)
+            continue
+    return corrections
+
+
+def inod(n):
+    """Counting Phylogenetic Ancestors"""
+    return n - 2
+
+
+def kmer(fasta):
+    """k-Mer Composition"""
+    pass
+
+
+def kmp(fasta):
+    """Speeding Up Motif Finding"""
+    pass
+
+
+def lcsq(fasta):
+    """Finding a Shared Spliced Motif"""
+    pass
+
+
 def lexv(A, n):
     """Ordering Strings of Varying Length Lexicographically"""
     pass
@@ -641,4 +731,4 @@ def eval(n, s, A):
 
 
 if __name__ == "__main__":
-    print(tree("Roz/f.txt"))
+    _write_lbsv(corr("Roz/f.txt"), "Roz/o.txt")

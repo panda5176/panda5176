@@ -439,9 +439,9 @@ def lexf(symbols, n):
     return recursive("".join(symbols.split()), symbols.split(), n - 1)
 
 
-def lgis(file):
+def lgis(lbsv):
     """Longest Increasing Subsequence"""
-    values = _read_lbsv(file)
+    values = _read_lbsv(lbsv)
     pi = list(map(int, values[1].split()))
     lis_tmp, lds_tmp, lis_is, lds_is = [pi[0]], [pi[0]], [1], [1]
     for i in range(1, len(pi)):
@@ -539,7 +539,14 @@ def prob(s, A):
 
 def sign(n):
     """Enumerating Oriented Gene Orderings"""
-    pass
+    from itertools import permutations, product
+
+    signed_perm = []
+    for perm in list(permutations(range(1, n + 1), n)):
+        for cartesian in product([-1, 1], repeat=n):
+            signed_perm.append(list(p * c for p, c in zip(perm, cartesian)))
+
+    return [len(signed_perm)] + signed_perm
 
 
 def sseq(fasta):
@@ -573,6 +580,38 @@ def tran(fasta):
     return round(transition / transversion, 11)
 
 
+def _read_simple_graph(lbsv):
+    """Reading simple un-directed grapth in the edge list format"""
+    edge_lists = _read_lbsv(lbsv)
+    vertices_range = range(int(edge_lists[0].split()[0]))
+    graph = [[] for vertex in vertices_range]
+    for edge in edge_lists[1:]:
+        u, v = list(map(int, edge.split()))
+        graph[u - 1].append(v - 1)
+        graph[v - 1].append(u - 1)
+    return graph, vertices_range
+
+
+def tree(lbsv):
+    """Completing a Tree"""
+    graph, _vertices_range = _read_simple_graph(lbsv)
+    queue = graph.pop(0)
+    graph, connected_components = [True] + graph, 1
+    for i, visited in enumerate(graph):
+        if not queue:
+            if visited == True:
+                continue
+            graph[i], queue = True, visited
+            connected_components += 1
+        while queue:
+            node = queue.pop(0)
+            if graph[node] != True:
+                queue += graph[node]
+                graph[node] = True
+
+    return connected_components - 1
+
+
 def lexv(A, n):
     """Ordering Strings of Varying Length Lexicographically"""
     pass
@@ -600,4 +639,4 @@ def eval(n, s, A):
 
 
 if __name__ == "__main__":
-    along("Roz/f.txt")
+    print(tree("Roz/f.txt"))

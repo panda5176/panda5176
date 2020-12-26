@@ -71,7 +71,7 @@ def bind(lbsv):
     return idxes
 
 
-def read_simple_graph(lbsv):
+def _read_simple_graph(lbsv):
     """Reading simple un-directed grapth in the edge list format"""
     edge_lists = _read_lbsv(lbsv)
     vertices_range = range(int(edge_lists[0].split()[0]))
@@ -85,7 +85,7 @@ def read_simple_graph(lbsv):
 
 def deg(lbsv):
     """Degree Array"""
-    graph, _vertices_range = read_simple_graph(lbsv)
+    graph, _vertices_range = _read_simple_graph(lbsv)
     D = []
     for vertex in graph:
         D.append(len(vertex))
@@ -108,7 +108,7 @@ def ins(lbsv):
 
 def ddeg(lbsv):
     """Double-Degree Array"""
-    graph, vertices_range = read_simple_graph(lbsv)
+    graph, vertices_range = _read_simple_graph(lbsv)
     D = [0 for vertex in vertices_range]
     for i in vertices_range:
         for neighbor in graph[i]:
@@ -182,7 +182,7 @@ def a2sum(lbsv):
 
 def bfs(lbsv):
     """Breadth-First Search"""
-    graph, vertices_range = read_simple_graph(lbsv)
+    graph, vertices_range = _read_simple_graph(lbsv)
     D, queue = [0] + [-1 for vertex in vertices_range][1:], [(0, 1)]
     while queue:
         vertex, depth = queue.pop(0)
@@ -196,14 +196,14 @@ def bfs(lbsv):
 def cc(lbsv):
     """Connected Components"""
     """Depth-first search"""
-    graph, _vertices_range = read_simple_graph(lbsv)
+    graph, _vertices_range = _read_simple_graph(lbsv)
     queue = graph.pop(0)
     graph, connected_components = [True] + graph, 1
     for i, visited in enumerate(graph):
         if not queue:
             if visited == True:
                 continue
-            graph[i], queue = True, queue + visited
+            graph[i], queue = True, visited
             connected_components += 1
         while queue:
             node = queue.pop(0)

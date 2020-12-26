@@ -551,7 +551,8 @@ def sign(n):
 
 def sseq(fasta):
     """Finding a Spliced Motif"""
-    s, t = list(_parse_fasta(fasta).values())
+    values = list(_parse_fasta(fasta).values())
+    s, t = values[0], values[1]
     i_t, indices, len_t = 0, [], len(t)
     for i_s in range(len(s)):
         if s[i_s] == t[i_t]:
@@ -563,7 +564,8 @@ def sseq(fasta):
 
 def tran(fasta):
     """Transitions and Transversions"""
-    s1, s2 = list(_parse_fasta(fasta).values())
+    values = list(_parse_fasta(fasta).values())
+    s1, s2 = values[0], values[1]
     transition, transversion = 0, 0
     for i in range(len(s1)):
         nt1, nt2 = s1[i], s2[i]

@@ -7,7 +7,7 @@
 ### Career
 - Busan Science High Scool (2012.03 ~ 2014.02)
 - B.S. in School of Biological Sciences, SNU (2014.03 ~ 2018.02)
-- Ph.D. Student in School of Biological Sciences, SNU (2018.03 ~ 2020.02)
+- Ph.D. Student in School of Biological Sciences, SNU (2018.03 ~ 2021.02)
 - Research Associates I in G+FLAS Life Sciences, Inc. (2018.05 ~ 2020.11)
 - Bioinformatician in 3billion, Inc. (2020.12 ~ now)
 

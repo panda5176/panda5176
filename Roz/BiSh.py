@@ -691,22 +691,79 @@ def inod(n):
 
 def kmer(fasta):
     """k-Mer Composition"""
-    pass
+    s = list(_parse_fasta(fasta).values())[0]
+    kmers = dict(zip(lexf("A C G T", 4), [0 for x in range(4 ** 4)]))
+    for i in range(len(s) - 3):
+        kmers[s[i : i + 4]] += 1
+    return [x[1] for x in sorted(kmers.items())]
 
 
 def kmp(fasta):
     """Speeding Up Motif Finding"""
-    pass
+    s, j, failures = list(_parse_fasta(fasta).values())[0], 0, [0]
+    for k in range(1, len(s)):
+        failed = False
+        if s[: j + 1] == s[k - j : k + 1]:
+            failures, j, failed = failures + [j + 1], j + 1, True
+        else:
+            for i in range(1, j + 1):
+                if s[: j - i + 1] == s[k - j + i : k + 1]:
+                    failures, j, failed = (
+                        failures + [j - i + 1],
+                        j - i + 1,
+                        True,
+                    )
+                    break
+        if not failed:
+            failures, j = failures + [0], 0
+
+    return failures
 
 
 def lcsq(fasta):
     """Finding a Shared Spliced Motif"""
-    pass
+    strings = list(_parse_fasta(fasta).values())
+    s, t = strings[0], strings[1]
+    matrix = [[[0, 0] for x in range(len(t) + 1)] for y in range(len(s) + 1)]
+    for i in range(len(s) + 1):
+        if i == 0:
+            continue
+        for j in range(len(t) + 1):
+            if j == 0:
+                continue
+            if s[i - 1] == t[j - 1]:
+                matrix[i][j] = [matrix[i - 1][j - 1][0] + 1, 1]
+            else:
+                if matrix[i][j - 1][0] > matrix[i - 1][j][0]:
+                    matrix[i][j] = [matrix[i][j - 1][0], 0]
+                else:
+                    matrix[i][j] = [matrix[i - 1][j][0], 2]
+    lcs, i, j = "", 0, 0
+    while -i - 1 >= -len(s) and -j - 1 >= -len(t):
+        direction = matrix[-i - 1][-j - 1][1]
+        if direction == 0:
+            j += 1
+        elif direction == 1:
+            lcs += s[-i - 1]
+            i, j = i + 1, j + 1
+        elif direction == 2:
+            i += 1
+
+    return lcs[::-1]
 
 
-def lexv(A, n):
-    """Ordering Strings of Varying Length Lexicographically"""
-    pass
+def pdst(fasta):
+    """Creating a Distance Matrix"""
+    strings = list(_parse_fasta(fasta).values())
+    matrix, len_s = [
+        [format(0.0, "6.5f") for n in strings] for n in strings
+    ], len(strings[0])
+    for i in range(len(strings)):
+        for j in range(len(strings)):
+            if i == j:
+                continue
+            matrix[i][j] = format(hamm(strings[i], strings[j]) / len_s, "6.5f")
+    return matrix
 
 
 def rstr(N, x, s):
@@ -720,6 +777,11 @@ def rstr(N, x, s):
     return round(1 - (1 - p_s) ** N, 3)
 
 
+def sset(n):
+    """Counting Subsets"""
+    return int((2 ** n) % 1e6)
+
+
 def eval(n, s, A):
     """Expected Number of Restriction Sites"""
     gc_s, len_s = s.count("G") + s.count("C"), len(s)
@@ -731,4 +793,4 @@ def eval(n, s, A):
 
 
 if __name__ == "__main__":
-    _write_lbsv(corr("Roz/f.txt"), "Roz/o.txt")
+    print(sset(809))

@@ -13,10 +13,12 @@
 
 ### Tech Stack
 - Python & Biopython
-- scikit-learn & TensorFlow & Keras & PyTorch
+- Godot Engine & GDScript
 
 ### Interests
 - Bioinformatics
-- Diagnostic genetics
+- Diagnostic Genetics
 - Functional Genomics
 - Artificial Intelligence
+- Cellular Automata
+- Artificial Life

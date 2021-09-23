@@ -12,8 +12,10 @@
 - 2012.03 ~ 2014.02: Busan Science High School
 
 ### Tech Stack
-- Python & C++
-- Computer Graphics & OpenGL
-- Bioinformatics
-- Diagnostic Genetics
-- Evolutionary Biology
+- Languages: C++ and Python 
+  - [https://programmers.co.kr/pr/panda5176](https://programmers.co.kr/pr/panda5176)
+- Computer Graphics: Game Engines and OpenGL
+  - 
+- Bioinformatics: Clinical Genetics and Evolutionary Biology
+  - [http://rosalind.info/users/physcopatens12](http://rosalind.info/users/physcopatens12)
+  - [https://doi.org/10.1093/bioinformatics/btab529](https://doi.org/10.1093/bioinformatics/btab529)

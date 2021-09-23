@@ -1,4 +1,4 @@
-## CGEfromSep2021
+# CGEfromSep2021
 Computer Graphics Engineering study from September 2021
 
 ## 이론

@@ -1,5 +1,5 @@
 # CGEfromSep2021
-#### Computer Graphics Engineering study from September 2021
+Computer Graphics Engineering study from September 2021
 
 ## 이론
 - [X] 2021.08 ~ 2021.09: [KUOCW 한정현 컴퓨터그래픽스 강좌](https://youtube.com/playlist?list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl)

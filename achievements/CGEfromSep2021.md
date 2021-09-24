@@ -17,7 +17,7 @@ Computer Graphics Engineering study from September 2021
   - [ ] etc.
 ## 실습
 - [ ] +@ 
-## 2021.09 ~ NOW: [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+고득점Kit+월간챌린지
+## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+고득점Kit+월간챌린지
 - [ ] level1 (40+@)
   - [X] 1일차 (16+@)
   - [ ] 2일차
@@ -34,7 +34,7 @@ Computer Graphics Engineering study from September 2021
 - [ ] level3 (27+@)
   - [ ] 1일차 (1+@)
   - [ ] ...
-## 2021.09 ~ NOW: CS
+## CS
 - [ ] [Tech Interview for developer](https://gyoogle.dev/blog)
 - [ ] C++
 - [ ] 자료구조와 알고리즘

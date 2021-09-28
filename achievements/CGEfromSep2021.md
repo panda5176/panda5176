@@ -16,7 +16,9 @@ Computer Graphics Engineering study from September 2021
   - [ ] PBR
   - [ ] etc.
 ## 실습
-- [ ] +@ 
+- [ ] 아이디어
+  - [ ] 태양계
+    - [ ] 중간에 반짝거리는 태양을 두고 색깔이 마구 바뀌는 행성과 위성, 가끔 오는 혜성 등등 
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+고득점Kit+월간챌린지
 - [ ] level1 (40+@)
   - [X] 1일차 (16+@)

@@ -18,7 +18,9 @@ Computer Graphics Engineering study from September 2021
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계
-    - [ ] 중간에 반짝거리는 태양을 두고 색깔이 마구 바뀌는 행성과 위성, 가끔 오는 혜성 등등 
+    - [ ] 중간에 반짝거리는 태양을 두고 색깔이 마구 바뀌는 행성과 위성, 가끔 오는 혜성 등등
+    - [ ] N광년으로 이동하는 우주선 또는 천정에서 보는 카메라
+    - [ ] OOP: 각 오브젝트에 발생하는 이벤트 ex) 혜성충돌, 월식
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+고득점Kit+월간챌린지
 - [ ] level1 (40+@)
   - [X] 1일차 (16+@)

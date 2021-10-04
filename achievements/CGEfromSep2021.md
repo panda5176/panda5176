@@ -24,7 +24,7 @@ Computer Graphics Engineering study from September 2021
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+고득점Kit+월간챌린지
 - [ ] level1 (40+@)
   - [X] 1일차 (16+@)
-  - [ ] 2일차
+  - [X] 2일차
   - [ ] 3일차
 - [ ] level2 (32+@)
   - [ ] 1일차 (4+@)

@@ -22,7 +22,7 @@ Computer Graphics Engineering study from September 2021
     - [ ] N광년으로 이동하는 우주선 또는 천정에서 보는 카메라
     - [ ] OOP: 각 오브젝트에 발생하는 이벤트 ex) 혜성충돌, 월식
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지
-- [ ] level1 (36+@)
+- [X] level1 (36+@)
   - [X] 1일차 (16+@)
   - [X] 2일차
   - [X] 3일차

@@ -21,6 +21,8 @@ Computer Graphics Engineering study from September 2021
     - [ ] 중간에 반짝거리는 태양을 두고 색깔이 마구 바뀌는 행성과 위성, 가끔 오는 혜성 등등
     - [ ] N광년으로 이동하는 우주선 또는 천정에서 보는 카메라
     - [ ] OOP: 각 오브젝트에 발생하는 이벤트 ex) 혜성충돌, 월식
+  - [ ] 바다
+    - [ ] 인터스텔라 행성처럼 아무것도 안보이고 바다만 있는... 근데 심해가 있는... 고래가 보이는... 
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지
 - [X] level1 (36+@)
   - [X] 1일차 (16+@)

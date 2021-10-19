@@ -10,7 +10,7 @@ Computer Graphics Engineering study from September 2021
   - [ ] [https://github.com/panda5176/LearnOpenGL](https://github.com/panda5176/LearnOpenGL)
   - [X] Getting Started
   - [X] Lighting
-  - [ ] Model Loading
+  - [X] Model Loading
   - [ ] Advanced OpenGL
   - [ ] Advanced Lighting
   - [ ] PBR

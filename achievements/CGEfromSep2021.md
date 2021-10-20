@@ -23,6 +23,7 @@ Computer Graphics Engineering study from September 2021
     - [ ] OOP: 각 오브젝트에 발생하는 이벤트 ex) 혜성충돌, 월식
   - [ ] 바다
     - [ ] 인터스텔라 행성처럼 아무것도 안보이고 바다만 있는... 근데 심해가 있는... 고래가 보이는... 
+    - [ ] 최적화할만할까?
 - [ ] Liqi Engine
   - [ ] 물, 액체 cg 구현에 초점
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지

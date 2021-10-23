@@ -6,15 +6,12 @@ Computer Graphics Engineering study from September 2021
   - [X] [1강](https://panda5176.github.io/computergraphics-kuocw/2021/08/24/01.html)
   - [X] ...
   - [X] [16강](https://panda5176.github.io/computergraphics-kuocw/2021/09/11/02.html)
-- [ ] 2021.09 ~ NOW: [LearnOpenGL](https://learnopengl.com)
-  - [ ] [https://github.com/panda5176/LearnOpenGL](https://github.com/panda5176/LearnOpenGL)
+- [X] 2021.09 ~ 2021.10: [LearnOpenGL](https://learnopengl.com)
+  - [X] [https://github.com/panda5176/LearnOpenGL](https://github.com/panda5176/LearnOpenGL)
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
-  - [ ] Advanced OpenGL
-  - [ ] Advanced Lighting
-  - [ ] PBR
-  - [ ] etc.
+- [ ] 2021.11 ~ NOW: [Game Programming in C++](https://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791161753560&orderClick=LAG&Kc=)
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계

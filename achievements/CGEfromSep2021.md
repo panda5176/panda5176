@@ -20,7 +20,7 @@ Computer Graphics Engineering study from September 2021
   - [ ] 바다
     - [ ] 인터스텔라 행성처럼 아무것도 안보이고 바다만 있는... 근데 심해가 있는... 고래가 보이는... 
     - [ ] 최적화할만할까?
-- [ ] Liqi
+- [ ] [Liqi](https://github.com/panda5176/liqi)
   - [ ] 물, 액체 구현에 초점
   - [ ] 사고난 아쿠아리움에서 고래 탈출시키기?
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지

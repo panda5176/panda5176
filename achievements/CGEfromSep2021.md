@@ -11,7 +11,6 @@ Computer Graphics Engineering study from September 2021
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
-- [ ] 2021.11 ~ NOW: [Game Programming in C++](https://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791161753560&orderClick=LAG&Kc=)
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계
@@ -21,8 +20,9 @@ Computer Graphics Engineering study from September 2021
   - [ ] 바다
     - [ ] 인터스텔라 행성처럼 아무것도 안보이고 바다만 있는... 근데 심해가 있는... 고래가 보이는... 
     - [ ] 최적화할만할까?
-- [ ] Liqi Engine
-  - [ ] 물, 액체 cg 구현에 초점
+- [ ] Liqi
+  - [ ] 물, 액체 구현에 초점
+  - [ ] 사고난 아쿠아리움에서 고래 탈출시키기?
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지
 - [X] level1 (36+@)
   - [X] 1일차 (16+@)
@@ -48,13 +48,3 @@ Computer Graphics Engineering study from September 2021
 - [ ] 소프트웨어공학
 - [ ] 컴퓨터그래픽스
 - [ ] 네트워크와 데이터베이스
-## 게임해보기!
-- [ ] 크래프톤
-  - [ ] 배틀그라운드
-  - [ ] +@
-- [ ] 넷게임즈
-  - [ ] V4
-  - [ ] +@
-- [ ] 컴투스
-  - [ ] 서머너즈워
-  - [ ] +@

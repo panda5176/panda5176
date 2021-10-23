@@ -11,6 +11,22 @@ Computer Graphics Engineering study from September 2021
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
+- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D](https://docs.godotengine.org/en/stable/tutorials/3d/index.html)
+  - [ ] Introduction to 3D
+  - [ ] Using 3D transforms
+  - [ ] 3D rendering limitations
+  - [ ] Spatial Material
+  - [ ] 3D lights and shadows
+  - [ ] Reflection probes
+  - [ ] Using GIProbe
+  - [ ] Baked lightmaps
+  - [ ] Environment and post-processing
+  - [ ] High dynamic range lighting
+  - [ ] Using GridMaps
+  - [ ] Using MultiMeshInstance
+  - [ ] Prototyping levels with CSG
+  - [ ] FPS tutorial
+  - [ ] Animating thousands of objects
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계

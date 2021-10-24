@@ -11,22 +11,16 @@ Computer Graphics Engineering study from September 2021
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
-- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D](https://docs.godotengine.org/en/stable/tutorials/3d/index.html)
-  - [ ] Introduction to 3D
-  - [ ] Using 3D transforms
-  - [ ] 3D rendering limitations
-  - [ ] Spatial Material
-  - [ ] 3D lights and shadows
-  - [ ] Reflection probes
-  - [ ] Using GIProbe
-  - [ ] Baked lightmaps
-  - [ ] Environment and post-processing
-  - [ ] High dynamic range lighting
-  - [ ] Using GridMaps
-  - [ ] Using MultiMeshInstance
-  - [ ] Prototyping levels with CSG
-  - [ ] FPS tutorial
-  - [ ] Animating thousands of objects
+- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D: FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html)
+  - [ ] Part 1
+  - [ ] Part 2
+  - [ ] Part 3
+  - [ ] Part 4
+  - [ ] Part 5
+  - [ ] Part 6
+- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D: Animating thousands of objects](https://docs.godotengine.org/en/stable/tutorials/3d/vertex_animation/index.html)
+  - [ ] Animating thousands of fish with MultiMeshInstance
+  - [ ] Controlling thousands of fish with Particles 
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계

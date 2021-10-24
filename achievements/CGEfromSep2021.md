@@ -11,8 +11,10 @@ Computer Graphics Engineering study from September 2021
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
-- [X] 2021.11 ~ NOW: [Godot Engine tutorials 3D: FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html)
-- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D: Animating thousands of objects](https://docs.godotengine.org/en/stable/tutorials/3d/vertex_animation/index.html)
+- [ ] 2021.11 ~ NOW: [Godot Engine tutorials 3D]
+  - [X] [FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html)
+  - [ ] [Your first shader](https://docs.godotengine.org/en/stable/tutorials/shading/your_first_shader/index.html)
+  - [ ] [Animating thousands of objects](https://docs.godotengine.org/en/stable/tutorials/3d/vertex_animation/index.html)
 ## 실습
 - [ ] 아이디어
   - [ ] 태양계

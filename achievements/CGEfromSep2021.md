@@ -25,6 +25,7 @@ Computer Graphics Engineering study from September 2021
 - [ ] [Liqi](https://github.com/panda5176/liqi)
   - [ ] 물, 액체 구현에 초점
   - [ ] 사고난 아쿠아리움에서 고래 탈출시키기?
+  - [ ] 바다에서 사는 해양포유류가 알고보면 땅에서 살았고, 지금은 없는 some liquid가 이들을 땅에서 헤엄치게 해주었다?
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지
 - [X] level1 (36+@)
   - [X] 1일차 (16+@)

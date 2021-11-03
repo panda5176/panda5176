@@ -45,13 +45,8 @@ Computer Graphics Engineering study from September 2021
   - [ ] 1일차 (1+@)
   - [ ] ...
 ## CS
-- [ ] [Tech Interview for developer](https://gyoogle.dev/blog)
+- [ ] [코드 없는 알고리즘과 데이터 구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791157686902)
 - [ ] C++
-- [ ] 자료구조와 알고리즘
-- [ ] 컴퓨터구조와 운영체제
-- [ ] 소프트웨어공학
-- [ ] 컴퓨터그래픽스
-- [ ] 네트워크와 데이터베이스
 ## ETC
 - 넷게임즈/컴투스/크래프톤
 - 엔씨소프트/넥슨/넷마블

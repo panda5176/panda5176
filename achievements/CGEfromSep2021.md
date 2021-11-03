@@ -45,7 +45,7 @@ Computer Graphics Engineering study from September 2021
   - [ ] 1일차 (1+@)
   - [ ] ...
 ## CS
-- [ ] [코드 없는 알고리즘과 데이터 구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791157686902)
+- [X] [코드 없는 알고리즘과 데이터 구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791157686902)
 - [ ] C++
 ## ETC
 - 넷게임즈/컴투스/크래프톤

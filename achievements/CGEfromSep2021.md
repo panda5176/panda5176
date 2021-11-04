@@ -6,18 +6,20 @@ Computer Graphics Engineering study from September 2021
   - [X] [1강](https://panda5176.github.io/computergraphics-kuocw/2021/08/24/01.html)
   - [X] ...
   - [X] [16강](https://panda5176.github.io/computergraphics-kuocw/2021/09/11/02.html)
-- [X] 2021.09 ~ 2021.10: [LearnOpenGL](https://learnopengl.com)
+- [X] 2021.09 ~ NOW: [LearnOpenGL](https://learnopengl.com)
   - [X] [https://github.com/panda5176/LearnOpenGL](https://github.com/panda5176/LearnOpenGL)
+  - [X] [Liqi Renderer](https://github.com/panda5176/liqi)
   - [X] Getting Started
   - [X] Lighting
   - [X] Model Loading
-- [X] 2021.10: [Godot Engine tutorials 3D]
-  - [X] [FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html)
-  - [X] [Your first shader](https://docs.godotengine.org/en/stable/tutorials/shading/your_first_shader/index.html)
-  - [X] [Animating thousands of objects](https://docs.godotengine.org/en/stable/tutorials/3d/vertex_animation/index.html)
-- [ ] 2021.11 ~ NOW: [Game Programming in C++](https://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791161753560)
+  - [ ] Advanced OpenGL
+  - [ ] Advanced Lighting
+  - [ ] PBR & In Practice
+  - [ ] Guest Articles
 - [ ] 2021.11 ~ NOW: [OpenGL Super Bible](https://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788968482045)
+- [ ] 2021.11 ~ NOW: [Game Programming in C++](https://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791161753560)
 ## 실습
+- [ ] [Liqi Renderer](https://github.com/panda5176/liqi)
 - [ ] 아이디어
   - [ ] 태양계
     - [ ] 중간에 반짝거리는 태양을 두고 색깔이 마구 바뀌는 행성과 위성, 가끔 오는 혜성 등등
@@ -26,7 +28,6 @@ Computer Graphics Engineering study from September 2021
   - [ ] 바다
     - [ ] 인터스텔라 행성처럼 아무것도 안보이고 바다만 있는... 근데 심해가 있는... 고래가 보이는... 
     - [ ] 최적화할만할까?
-- [ ] [Liqi Engine](https://github.com/panda5176/liqi)
 ## [프로그래머스](https://programmers.co.kr/learn/challenges) 연습+월간챌린지
 - [X] level1 (36+@)
   - [X] 1일차 (16+@)

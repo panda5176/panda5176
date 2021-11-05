@@ -14,7 +14,7 @@
 ### Tech Stack
 - **Languages**: C++, Python and GDScript
   - [https://programmers.co.kr/pr/panda5176](https://programmers.co.kr/pr/panda5176)
-- **Computer Graphics**: OpenGL and Game Engine, especially Godot Engine
+- **Computer Graphics**: Renderers, Game Engines, OpenGL and GLSL
   - [achievements/CGEfromSep2021.md](https://github.com/panda5176/panda5176/blob/main/achievements/CGEfromSep2021.md)
 - **Bioinformatics**: Clinical Genetics and Evolutionary Biology
   - [http://rosalind.info/users/physcopatens12](http://rosalind.info/users/physcopatens12)

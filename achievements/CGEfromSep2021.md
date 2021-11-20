@@ -55,7 +55,8 @@ Computer Graphics Engineering study from September 2021
 - [X] [코드 없는 알고리즘과 데이터 구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791157686902)
 - [ ] C++
 ## ETC
-- 넷게임즈/컴투스/쿡앱스/크래프톤
+- 넷게임즈/컴투스/크래프톤
+- 쿡앱스/데브시스터즈
 - 엔씨소프트/넥슨/넷마블
 - 시프트업/펄어비스
 - 에이스프로젝트/잔디소프트

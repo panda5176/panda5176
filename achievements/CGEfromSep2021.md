@@ -56,7 +56,7 @@ Computer Graphics Engineering study from September 2021
 - [ ] C++
 ## ETC
 - 넷게임즈/컴투스/크래프톤
-- 쿡앱스/데브시스터즈
 - 엔씨소프트/넥슨/넷마블
+- 쿡앱스/데브시스터즈
 - 시프트업/펄어비스
 - 에이스프로젝트/잔디소프트

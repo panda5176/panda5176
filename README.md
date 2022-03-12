@@ -2,7 +2,7 @@
 - **Bioinformatics Engineer**
 - **panda5176@gmail.com**
 - **[https://github.com/panda5176](https://github.com/panda5176)**
-- **[https://panda5176.github.io](https://panda5176.github.io)**
+- **[http://dwarfintheflask.xyz](http://dwarfintheflask.xyz)**
 
 ### Career
 - **2020.12 ~ NOW: Bioinformatics Engineer for 3billion, Inc.**
@@ -12,6 +12,5 @@
 - **2012.03 ~ 2014.02: Busan Science High School**
 
 ### Tech Stack
-- Python
-- Flask
-- C++
+- Languages: Python, C++
+- Frameworks & Architecture: Flask, PostgreSQL, AWS

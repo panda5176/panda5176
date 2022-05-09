@@ -1,4 +1,4 @@
-### Derrick Kim (panda5176)
+### Pandata (Dong-wook Derrick Kim, panda5176)
 - **Bioinformatics Data Engineer**
 - **panda5176@gmail.com**
 - **[https://github.com/panda5176](https://github.com/panda5176)**

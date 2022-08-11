@@ -14,4 +14,6 @@
 
 ### Tech Stack
 - Languages: Python, C++
-- Frameworks & Architecture: Flask, PostgreSQL, AWS
+- Web: AWS EC2 - NGINX - Gunicorn - Flask & FastAPI
+- Database: MySQL & PostgreSQL & MongoDB
+- Data processing: scikit-learn - Plotly & Dash

@@ -1,6 +1,6 @@
 ### Pandata
 - Dong-wook Derrick Kim, panda5176
-- **Back-End Engineer in bioinformatics**
+- **Backend Engineer in bioinformatics**
 - **panda5176@gmail.com**
 - **[https://github.com/panda5176](https://github.com/panda5176)**
 - **[https://panda5176.tistory.com](https://panda5176.tistory.com)**

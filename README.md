@@ -13,8 +13,8 @@
 - **2012.03 ~ 2014.02: Busan Science High School**
 
 ### Tech Stack
-- Languages: Python, C++
-- Data-mining: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
-- Database: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
-- Web: EC2, Ubuntu, Flask, Quart, FastAPI
-- Visualization: matplotlib, seaborn, Plotly, Bokeh
+- **Languages**: Python, C++
+- **Data-mining**: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
+- **Database**: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
+- **Web**: EC2, Ubuntu, Flask, Quart, FastAPI
+- **Visualization**: matplotlib, seaborn, Plotly, Bokeh

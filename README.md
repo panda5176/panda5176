@@ -3,7 +3,7 @@
 - **Back-End Engineer in bioinformatics**
 - **panda5176@gmail.com**
 - **[https://github.com/panda5176](https://github.com/panda5176)**
-- **[http://dwarfintheflask.xyz](http://dwarfintheflask.xyz)**
+- **[https://panda5176.tistory.com](https://panda5176.tistory.com)**
 
 ### Career
 - **2020.12 ~ NOW: Bioinformatics Engineer for 3billion, Inc.**
@@ -14,6 +14,7 @@
 
 ### Tech Stack
 - Languages: Python, C++
-- Web: AWS EC2 - NGINX - Gunicorn - Flask & FastAPI
-- Database: MySQL & PostgreSQL & MongoDB
-- Data processing: scikit-learn - Plotly & Dash
+- Data-mining: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
+- Database: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
+- Web: EC2, Ubuntu, Flask, Quart, FastAPI
+- Visualization: matplotlib, seaborn, Plotly, Bokeh

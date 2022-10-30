@@ -1,16 +1,16 @@
 ## Pandata
 - Dong-wook Derrick Kim, panda5176
-- **Data Analyst & Backend Developer**
-- **panda5176@gmail.com**
-- **[https://github.com/panda5176](https://github.com/panda5176)**
-- **[https://panda5176.tistory.com](https://panda5176.tistory.com)**
+- Data Analyst & Backend Developer
+- panda5176@gmail.com
+- [https://github.com/panda5176](https://github.com/panda5176)
+- [https://panda5176.tistory.com](https://panda5176.tistory.com)
 
 ### Tech Stack
-- **Languages**: Python, R, C++
-- **Databases**: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
-- **Analysis**: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
-- **Visualization**: matplotlib, seaborn, Plotly, Bokeh
-- **Web**: EC2, Ubuntu, Flask, Quart, FastAPI
+- Languages: Python, R, C++
+- Databases: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
+- Analysis: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
+- Visualization: matplotlib, seaborn, Plotly, Bokeh
+- Web: EC2, Ubuntu, Flask, Quart, FastAPI
 
 ### Career
 - 2020.12 ~ NOW: Bioinformatics Engineer for 3billion, Inc.

@@ -1,20 +1,20 @@
 ### Pandata
-- Dong-wook Derrick Kim, panda5176
-- **Backend Engineer in bioinformatics**
-- **panda5176@gmail.com**
-- **[https://github.com/panda5176](https://github.com/panda5176)**
-- **[https://panda5176.tistory.com](https://panda5176.tistory.com)**
 
-### Career
-- **2020.12 ~ NOW: Bioinformatics Engineer for 3billion, Inc.**
-- **2018.05 ~ 2020.11: Research Associates I for G+FLAS Life Sciences, Inc.**
-- **2018.03 ~ 2021.02: Ph.D. Student at School of Biological Sciences, SNU**
-- **2014.03 ~ 2018.02: B.S. at School of Biological Sciences, SNU**
-- **2012.03 ~ 2014.02: Busan Science High School**
+I'm Dong-wook Kim, a.k.a. Derrick, panda5176, and Pandata.
 
-### Tech Stack
-- **Languages**: Python, R, C++
-- **Data-mining**: NumPy, SciPy, pandas, statsmodels, scikit-learn, Keras
-- **Database**: SQLite, MySQL, PostgreSQL, MongoDB, DynamoDB
-- **Web**: EC2, Ubuntu, Flask, Quart, FastAPI
-- **Visualization**: matplotlib, seaborn, Plotly, Bokeh
+I'm **Data Analyst** and **Backend Developer**, majored in bioinformatics, data sciences, and statistics.
+
+I usually use **`Python`** for programming language, but also `R` or `C++` sometimes. I'm experienced with following tech stacks;
+
+- `SQLite`, `MySQL`, `PostgreSQL`, `MongoDB`, and `DynamoDB` for databases.
+- `Numpy`, `SciPy`, `pandas`, `statsmodels`, `scikit-learn`, `Keras` for analysis.
+- `matplotlib`, `seaborn`, `Plotly`, `Bokeh` for visualization.
+- `AWS EC2`-`Ubuntu`-`nginx`-`gunicorn`/`uvicorn`-`Flask`/`Quart`/`FastAPI`-`Bootstrap` for web stack.
+
+For more detailed career information, please see my GitHub career archive, [HERE](https://github.com/panda5176/panda5176/blob/main/CAREER.md)
+
+Here's my contact info;
+
+- Mail) **panda5176@gmail.com**.
+- Blog) **[https://panda5176.tistory.com](https://panda5176.tistory.com)**.
+- GitHub) **[https://github.com/panda5176](https://github.com/panda5176)**.

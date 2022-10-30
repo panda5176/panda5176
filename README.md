@@ -11,7 +11,7 @@ I usually use **`Python`** for programming language, but also `R` or `C++` somet
 - `matplotlib`, `seaborn`, `Plotly`, `Bokeh` for visualization.
 - `AWS EC2`-`Ubuntu`-`nginx`-`gunicorn`/`uvicorn`-`Flask`/`Quart`/`FastAPI`-`Bootstrap` for web stack.
 
-For more detailed career information, please see my GitHub career archive, [HERE](https://github.com/panda5176/panda5176/blob/main/CAREER.md)
+For more detailed career information, please see my GitHub career archive, [HERE](https://github.com/panda5176/panda5176/blob/main/CAREER.md).
 
 Here's my contact info;
 

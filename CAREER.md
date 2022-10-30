@@ -2,8 +2,8 @@
 - Dong-wook Derrick Kim, panda5176
 - Data Analyst & Backend Developer
 - **panda5176@gmail.com**
-- **[https://github.com/panda5176](https://github.com/panda5176)**
 - **[https://panda5176.tistory.com](https://panda5176.tistory.com)**
+- **[https://github.com/panda5176](https://github.com/panda5176)**
 
 ### Tech Stack
 - **Languages**: Python, R, C++

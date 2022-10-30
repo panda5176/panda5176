@@ -2,7 +2,7 @@
 
 I'm Dong-wook Kim, a.k.a. Derrick, panda5176, and **Pandata**.
 
-I'm **Data Analyst** and **Backend Developer**, majored in bioinformatics, data sciences, and statistics.
+I'm a **Data Analyst** and **Backend Developer**, majored in bioinformatics, data sciences, and statistics.
 
 I usually use **`Python`** for programming language, but also `R` or `C++` sometimes. I'm experienced with following tech stacks;
 

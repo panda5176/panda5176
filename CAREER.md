@@ -19,6 +19,10 @@
 - 2014.03 ~ 2018.02: B.S. at School of Biological Sciences, SNU
 - 2012.03 ~ 2014.02: Busan Science High School
 
+### Certificate
+- 국가기술자격 빅데이터분석기사
+- 국가기술자격 정보처리기사
+
 ### Papers
 - Won, D. G., *et al.* (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
 

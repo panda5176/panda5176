@@ -19,7 +19,7 @@
 - 2014.03 ~ 2018.02: B.S. at School of Biological Sciences, SNU
 - 2012.03 ~ 2014.02: Busan Science High School
 
-### Certificate
+### Certificates
 - 국가기술자격 빅데이터분석기사
 - 국가기술자격 정보처리기사
 

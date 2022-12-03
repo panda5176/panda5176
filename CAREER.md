@@ -24,7 +24,8 @@
 - 국가기술자격 정보처리기사
 
 ### Papers
-- Won, D. G., *et al.* (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
+- Kim, H.S., Kim, D., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Sci. Rep.* **12**, 20857. https://doi.org/10.1038/s41598-022-25227-w.
+- Won, D.G., *et al.* (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
 
 ### Patents (registered)
 - (2022). 특허출원제10-2022-0030011. 유전자의 기능변화 패턴을 이용한 약물 표적 및 활성 위치 탐지 시스템. https://doi.org/10.8080/1020220030011.

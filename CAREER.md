@@ -24,7 +24,7 @@
 - 국가기술자격 정보처리기사
 
 ### Papers
-- Kim, H.S., Kim, D.W., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Sci. Rep.* **12**, 20857. https://doi.org/10.1038/s41598-022-25227-w.
+- Kim, H.S., Kim, D.W., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Sci. Rep.* **12(1)**, 1-12. https://doi.org/10.1038/s41598-022-25227-w.
 - Won, D.G., Kim, D.W., Woo, J., Lee, K. (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
 
 ### Patents (registered)

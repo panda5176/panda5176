@@ -1,6 +1,6 @@
-### Pandata
+### Pandatta
 
-I'm Dong-wook Kim, a.k.a. Derrick, panda5176, and **Pandata**.
+I'm Dong-wook Kim, a.k.a. Derrick, panda5176, and **Pandatta**.
 
 I'm a **Data Analyst** and **Backend Developer**, majored in bioinformatics, data sciences, and statistics.
 

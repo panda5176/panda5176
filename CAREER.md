@@ -1,4 +1,4 @@
-## Pandata
+## Pandatta
 - Dong-wook Derrick Kim, panda5176
 - Data Analyst & Backend Developer
 - **panda5176@gmail.com**

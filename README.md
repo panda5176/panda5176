@@ -6,10 +6,11 @@ I'm a **Data Analyst** and **Backend Developer**, majored in bioinformatics, dat
 
 I usually use **`Python`** for programming language, but also `R` or `C++` sometimes. I'm experienced with following tech stacks;
 
-- `SQLite`, `MySQL`, `PostgreSQL`, `MongoDB`, and `DynamoDB` for databases.
+- `Flask`, `Django`, `FastAPI` for backend.
+- `AWS` for clouds, especially `EC2`, `Lambda`, `S3`, `DynamoDB`, `RDS`, `ECR`, `Route53`, `IAM`.
+- `SQLite`, `MySQL`, `PostgreSQL`, `MongoDB`, `Redis` for databases.
 - `Numpy`, `SciPy`, `pandas`, `statsmodels`, `scikit-learn`, `Keras` for analysis.
 - `matplotlib`, `seaborn`, `Plotly`, `Bokeh` for visualization.
-- `AWS EC2`-`Ubuntu`-`nginx`-`gunicorn`/`uvicorn`-`Flask`/`Quart`/`FastAPI`-`Bootstrap` for web stack.
 
 For more detailed career information, please see my GitHub career archive, **[HERE](https://github.com/panda5176/panda5176/blob/main/CAREER.md)**.
 

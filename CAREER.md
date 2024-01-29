@@ -19,12 +19,9 @@
 - 2014.03 ~ 2018.02: B.S. at School of Biological Sciences, SNU
 - 2012.03 ~ 2014.02: Busan Science High School
 
-### Certificates
-- 국가기술자격 빅데이터분석기사
-- 국가기술자격 정보처리기사
-
 ### Papers
-- Kim, H.S., Kim, D.W., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Sci. Rep.* **12(1)**, 1-12. https://doi.org/10.1038/s41598-022-25227-w.
+- Ryu, S.W., Yoon, J.H., Kim, D.W., Han, B., Han, H., Han, J., ... & Lee, B. H. (2024). Identification of a complex intrachromosomal inverted insertion in the long arm of chromosome 9 as a cause of tuberous sclerosis complex in a Korean family. *Molecular Genetics & Genomic Medicine*, e2330. https://doi.org/10.1002/mgg3.2330.
+- Kim, H.S., Kim, D.W., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Scientific Reports* **12(1)**, 1-12. https://doi.org/10.1038/s41598-022-25227-w.
 - Won, D.G., Kim, D.W., Woo, J., Lee, K. (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
 
 ### Patents (registered)
@@ -33,6 +30,10 @@
 - (2020). 특허출원제10-2020-7009563. 키메라 게놈 조작 분자 및 방법. https://doi.org/10.8080/1020207009563.
 - (2019). 특허출원제10-2019-0169918. 신규한 CRISPR 연관 단백질 및 이의 용도. https://doi.org/10.8080/1020190169918.
 - (2019). 특허출원제10-2019-0107608. 가이드 RNA 및 엔도뉴클레아제를 유효성분으로 포함하는 암 치료용 약학적 조성물. https://doi.org/10.8080/1020190107608.
+
+### Certificates
+- 국가기술자격 빅데이터분석기사
+- 국가기술자격 정보처리기사
 
 ### Awards
 - (2022). [Critical Assessment of Genome Interpretation 6 (CAGI6) SickKids challenge](https://genomeinterpretation.org/cagi6-sickkids.html) 우승. https://www.medigatenews.com/news/2143095927.

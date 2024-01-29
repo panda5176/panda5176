@@ -20,7 +20,7 @@
 - 2012.03 ~ 2014.02: Busan Science High School
 
 ### Papers
-- Ryu, S.W., Yoon, J.H., Kim, D.W., Han, B., Han, H., Han, J., ... & Lee, B. H. (2024). Identification of a complex intrachromosomal inverted insertion in the long arm of chromosome 9 as a cause of tuberous sclerosis complex in a Korean family. *Molecular Genetics & Genomic Medicine*, e2330. https://doi.org/10.1002/mgg3.2330.
+- Ryu, S.W., Yoon, J.H., Kim, D.W., Han, B., Han, H., Han, J., ... & Lee, B. H. (2024). Identification of a complex intrachromosomal inverted insertion in the long arm of chromosome 9 as a cause of tuberous sclerosis complex in a Korean family. *Molecular Genetics & Genomic Medicine*, **e2330**, 1-7. https://doi.org/10.1002/mgg3.2330.
 - Kim, H.S., Kim, D.W., Kim, S. & Choe, S. (2022). Biochemical characterization of the two novel mgCas12a proteins from the human gut metagenome. *Scientific Reports* **12(1)**, 1-12. https://doi.org/10.1038/s41598-022-25227-w.
 - Won, D.G., Kim, D.W., Woo, J., Lee, K. (2021). 3Cnet: pathogenicity prediction of human variants using multitask learning with evolutionary constraints. *Bioinformatics* **37(24)**, 4626-4634. https://doi.org/10.1093/bioinformatics/btab529.
 

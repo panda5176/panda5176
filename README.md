@@ -1,8 +1,9 @@
-### Pandatta
+### kim_ikki
 
-I'm Dong-wook Kim, a.k.a. Derrick, panda5176, and **Pandatta**.
+I'm Dong-wook Kim, a.k.a. Derrick, panda5176, Pandatta, and **kim_ikki**.
 
-I'm a **Backend Developer** and **Data Scientist**, majored in bioinformatics, data sciences, and statistics.
+I am a Master's student studing **Philosophy of Science**.
+I was a **Backend Developer** and **Data Scientist**, majored in evolutionary biology, bioinformatics, data sciences, and statistics.
 
 I usually use **`Python`** for programming language, but also `R` or `C++` sometimes. I'm experienced with following tech stacks;
 
@@ -16,6 +17,7 @@ For more detailed career information, please see my GitHub career archive, **[HE
 
 Here's my contact info;
 
-- Mail) **panda5176@gmail.com**.
-- Blog) **[https://panda5176.tistory.com](https://panda5176.tistory.com)**.
+- Mail) **panda5176@gmail.com**, **ap5176@kaist.ac.kr**.
+- Blog-KR) **[https://blog.naver.com/kim_ikki](https://blog.naver.com/kim_ikki)**,
+- Devlog) **[https://panda5176.tistory.com](https://panda5176.tistory.com)**.
 - GitHub) **[https://github.com/panda5176](https://github.com/panda5176)**.

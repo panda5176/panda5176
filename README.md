@@ -3,6 +3,7 @@
 I'm Dong-wook Kim, a.k.a. Derrick, panda5176, Pandatta, and **kim_ikki**.
 
 I am a Master's student studing **Philosophy of Science**.
+
 I was a **Backend Developer** and **Data Scientist**, majored in evolutionary biology, bioinformatics, data sciences, and statistics.
 
 I usually use **`Python`** for programming language, but also `R` or `C++` sometimes. I'm experienced with following tech stacks;
